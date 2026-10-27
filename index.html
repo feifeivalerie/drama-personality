@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>短剧人格鉴定：你的性格能在短剧里活几集？</title>
+<meta name="description" content="20 道题的像素风短剧人格鉴定：你的性格能在短剧里活几集？16 类爽剧剧本，测测你能撑到第几集。">
+<meta property="og:title" content="短剧人格鉴定：你的性格能在短剧里活几集？">
+<!-- 像素字体：异步加载，加载失败也不阻塞渲染（退化为等宽体，中文不受影响） -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"></noscript>
+<style>
+/* ================= 像素风 · 基础 ================= */
+:root{
+  --bg:#15102e; --card:#241c52; --card2:#2f2568; --ink:#f6f3ff; --dim:#b8afdd;
+  --dark:#0a0620;
+  --pink:#ff5d8f; --gold:#ffd23f; --mint:#4fe3a5; --sky:#5cc8ff;
+  --violet:#b07cff; --orange:#ff8c42; --cream:#fff4e0;
+  --pf:'Press Start 2P','Courier New',ui-monospace,monospace;
+  --cn:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--cn);color:var(--ink);background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),
+    radial-gradient(1000px 560px at 50% -8%,#2d216f 0%,transparent 60%);
+  background-size:8px 8px,8px 8px,100% 100%;
+  min-height:100vh;line-height:1.75;letter-spacing:.02em;overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:20;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px);
+  opacity:.5;
+}
+.wrap{max-width:660px;margin:0 auto;padding:10px 13px 70px;position:relative;z-index:2}
+
+/* ================= 顶栏 ================= */
+.topbar{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--pf);font-size:9px;color:var(--gold);
+  padding:10px 0 4px;text-shadow:2px 2px 0 var(--dark);letter-spacing:1px;
+}
+.pixlogo{display:inline-flex;gap:2px}
+.pixlogo i{width:5px;height:5px;display:block;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.pixlogo i:nth-child(1){background:var(--pink)}
+.pixlogo i:nth-child(2){background:var(--gold)}
+.pixlogo i:nth-child(3){background:var(--mint)}
+.pixlogo i:nth-child(4){background:var(--sky)}
+
+/* ================= 舞台 / 卡片 ================= */
+.stage{display:none;animation:fadeup .34s ease both}
+.stage.show{display:block}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card{
+  background:var(--card);border:3px solid var(--dark);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),6px 6px 0 rgba(0,0,0,.45);
+  padding:16px 15px;margin-bottom:15px;position:relative;
+}
+.card.a-pink{border-top:5px solid var(--pink)}
+.card.a-gold{border-top:5px solid var(--gold)}
+.card.a-mint{border-top:5px solid var(--mint)}
+.card.a-sky{border-top:5px solid var(--sky)}
+.card.a-violet{border-top:5px solid var(--violet)}
+.card.a-orange{border-top:5px solid var(--orange)}
+
+/* ================= 流光 ================= */
+.flow{
+  background-image:linear-gradient(100deg,var(--cream) 0%,var(--gold) 18%,var(--pink) 34%,var(--violet) 50%,var(--sky) 66%,var(--mint) 82%,var(--cream) 100%);
+  background-size:300% 100%;
+  color:#ffffff; /* 兜底：浏览器不支持文字裁切时显示纯白，不会变透明 */
+  animation:flowmove 7s linear infinite;
+}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .flow{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+}
+@keyframes flowmove{from{background-position:0 0}to{background-position:300% 0}}
+.flowbox{position:relative;overflow:hidden}
+.flowbox>.fl{position:absolute;inset:0;pointer-events:none;opacity:.26;
+  background:linear-gradient(100deg,transparent 22%,rgba(255,255,255,.9) 50%,transparent 78%);
+  background-size:220% 100%;animation:flowmove 3.6s linear infinite}
+
+/* ================= 首页 ================= */
+.hero{text-align:center;padding:22px 12px 10px}
+.badge{
+  display:inline-block;font-family:var(--pf);font-size:9px;color:var(--dark);
+  background:var(--mint);padding:7px 10px;border:3px solid var(--dark);
+  box-shadow:4px 4px 0 rgba(0,0,0,.5);margin-bottom:14px;line-height:1.5;
+}
+h1.title{
+  font-size:27px;line-height:1.5;margin:6px 0 4px;font-weight:800;letter-spacing:.04em;
+  text-shadow:3px 3px 0 var(--dark),6px 6px 0 rgba(0,0,0,.35);
+}
+h1.title .sub{
+  display:block;font-size:19px;margin-top:10px;
+  /* 白色本体 + 极淡暖光扫过，保证任何渲染环境下都是白字而非黑影 */
+  background-image:linear-gradient(100deg,#ffffff 0%,#ffffff 22%,#ffe9c9 32%,#ffffff 44%,
+    #ffffff 56%,#ffe3ef 68%,#ffffff 80%,#ffffff 100%);
+  -webkit-text-stroke:0;
+  /* 硬投影改用 filter，避免部分浏览器把 text-shadow 画在渐变文字上方导致发黑 */
+  text-shadow:none;
+  -webkit-filter:drop-shadow(3px 3px 0 var(--dark)) drop-shadow(6px 6px 0 rgba(0,0,0,.35));
+  filter:drop-shadow(3px 3px 0 var(--dark)) drop-shadow(6px 6px 0 rgba(0,0,0,.35));
+}
+.desc{color:var(--dim);font-size:14px;margin:14px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 4px}
+.chip{font-size:11.5px;padding:5px 9px;border:2px solid var(--dark);
+  background:rgba(255,255,255,.06);color:var(--dim);box-shadow:2px 2px 0 rgba(0,0,0,.4)}
+.chip b{color:var(--cream);font-family:var(--pf);font-size:9px;margin-right:3px}
+
+/* ================= 频道选择 ================= */
+.gsel{margin:16px 0 2px}
+.gslbl{font-family:var(--pf);font-size:9px;color:var(--dim);letter-spacing:1px;margin-bottom:10px}
+.gbtns{display:flex;gap:10px;justify-content:center}
+.gbtn{
+  flex:1;max-width:190px;font-family:var(--cn);font-weight:900;font-size:15px;cursor:pointer;
+  padding:14px 6px 13px;border:3px solid var(--dark);background:rgba(255,255,255,.06);
+  color:var(--dim);box-shadow:4px 4px 0 rgba(0,0,0,.45);transition:transform .07s steps(2),filter .18s;
+}
+.gbtn .gi{display:block;font-family:var(--pf);font-size:19px;margin-bottom:7px}
+.gbtn small{display:block;font-weight:500;font-size:11px;margin-top:5px;opacity:.75;letter-spacing:0}
+.gbtn[data-g="f"].on{background:var(--pink);color:var(--cream);text-shadow:2px 2px 0 rgba(0,0,0,.3)}
+.gbtn[data-g="m"].on{background:var(--sky);color:var(--dark)}
+.gbtn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 rgba(0,0,0,.45)}
+@media(max-width:359px){.gbtn{font-size:13.5px}}
+
+/* ================= 按钮 ================= */
+.btn{
+  font-family:var(--cn);font-weight:800;font-size:15px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 20px;border:3px solid var(--dark);background:var(--gold);color:var(--dark);
+  box-shadow:5px 5px 0 rgba(0,0,0,.55);cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .07s steps(2),box-shadow .18s,filter .18s;margin:6px 4px 0;
+}
+.btn:hover{filter:brightness(1.08);box-shadow:5px 5px 0 rgba(0,0,0,.55),0 0 16px rgba(255,210,63,.35)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 rgba(0,0,0,.55)}
+.btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.5)}
+.btn.primary{background:var(--pink);color:var(--cream);text-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.btn.mint{background:var(--mint)}
+.btn.sky{background:var(--sky)}
+.btn.violet{background:var(--violet);color:var(--cream)}
+.btn.ghost{background:transparent;color:var(--cream);box-shadow:5px 5px 0 rgba(0,0,0,.4)}
+.btn.small{font-size:13px;padding:10px 13px}
+.ripple{
+  position:absolute;width:10px;height:10px;background:rgba(255,255,255,.55);
+  transform:translate(-50%,-50%) scale(1);pointer-events:none;
+  animation:rip .38s steps(6) forwards;
+}
+@keyframes rip{from{transform:translate(-50%,-50%) scale(1);opacity:.7}
+  to{transform:translate(-50%,-50%) scale(14);opacity:0}}
+
+/* ================= 免责 ================= */
+.note{
+  font-size:11.5px;color:var(--dim);background:rgba(255,255,255,.05);
+  border:2px dashed rgba(255,255,255,.18);padding:9px 11px;line-height:1.7;margin-top:12px;
+}
+.note.warn{border-color:rgba(255,140,66,.5);color:var(--orange)}
+
+/* ================= 加载 ================= */
+.loader{display:flex;gap:6px;justify-content:center;margin:34px 0 16px}
+.loader i{width:12px;height:12px;display:block;border:2px solid var(--dark);
+  animation:jump 1s steps(2) infinite}
+.loader i:nth-child(1){background:var(--pink);animation-delay:0s}
+.loader i:nth-child(2){background:var(--gold);animation-delay:.15s}
+.loader i:nth-child(3){background:var(--mint);animation-delay:.3s}
+.loader i:nth-child(4){background:var(--sky);animation-delay:.45s}
+.loader i:nth-child(5){background:var(--violet);animation-delay:.6s}
+@keyframes jump{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-12px)}}
+.loadtxt{text-align:center;font-family:var(--pf);font-size:10px;color:var(--gold);letter-spacing:1px}
+
+/* ================= 进度 ================= */
+.progwrap{position:sticky;top:0;z-index:12;background:var(--bg);
+  padding:10px 0 8px;border-bottom:2px solid rgba(255,255,255,.07);margin-bottom:14px}
+.prog{display:grid;grid-template-columns:repeat(20,1fr);gap:2px}
+.prog i{height:11px;background:rgba(255,255,255,.1);border:1px solid rgba(0,0,0,.5)}
+.prog i.on{background:linear-gradient(180deg,var(--mint),#2fae7d)}
+.prog i.cur{background:var(--gold);animation:blink .7s steps(2) infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.progtop{display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--pf);font-size:9px;color:var(--dim);margin-bottom:7px}
+.progtop .pc{color:var(--gold)}
+
+/* ================= 题目 ================= */
+.qcard{margin-bottom:14px}
+.qhead{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.qidx{font-family:var(--pf);font-size:9px;color:var(--dark);padding:5px 7px;
+  border:2px solid var(--dark);box-shadow:3px 3px 0 rgba(0,0,0,.45)}
+.qfac{font-size:11px;color:var(--dim);border:2px solid rgba(255,255,255,.14);padding:3px 7px}
+.qtext{font-size:15px;font-weight:700;line-height:1.75;margin:0 0 12px}
+.opt{
+  width:100%;text-align:left;display:flex;gap:9px;align-items:flex-start;
+  background:rgba(255,255,255,.045);border:2px solid var(--dark);padding:11px 12px;
+  color:var(--ink);font-family:var(--cn);font-size:14px;line-height:1.7;cursor:pointer;
+  box-shadow:3px 3px 0 rgba(0,0,0,.35);margin-bottom:8px;transition:transform .1s steps(2),background .16s;
+}
+.opt:hover{background:rgba(255,255,255,.1)}
+.opt .mk{flex:0 0 auto;font-family:var(--pf);font-size:9px;color:var(--dim);padding-top:2px}
+.opt.sel{background:var(--gold);color:var(--dark);font-weight:800;
+  box-shadow:3px 3px 0 rgba(0,0,0,.5),inset 0 0 0 2px rgba(255,255,255,.6)}
+.opt.sel .mk{color:var(--dark)}
+.pager{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:4px}
+.pgtip{font-size:11.5px;color:var(--dim)}
+
+/* ================= 结果页 ================= */
+.rhero{text-align:center;padding:20px 12px 16px;position:relative}
+.chanbar{display:inline-block;font-family:var(--cn);font-weight:900;font-size:12.5px;letter-spacing:.06em;
+  padding:5px 13px;border:2px solid var(--dark);background:var(--pink);color:var(--cream);
+  box-shadow:3px 3px 0 rgba(0,0,0,.45);margin-bottom:10px}
+.chanbar.m{background:var(--sky);color:var(--dark)}
+.heroTop{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+.heroTop .chanbar{margin-bottom:0}
+.kwrow{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0 6px}
+.kwrow span{font-size:11.5px;font-weight:700;padding:3px 9px;border:2px solid var(--dark);
+  background:rgba(79,227,165,.16);color:var(--mint)}
+.kwrow span.fit{background:rgba(87,199,255,.14);color:var(--sky)}
+.rhero .lbl{font-family:var(--pf);font-size:9px;color:var(--dim);letter-spacing:1px}
+.epnum{font-family:var(--pf);font-size:46px;line-height:1.4;margin:6px 0 2px;
+  text-shadow:4px 4px 0 var(--dark)}
+.epnum .flow{text-shadow:none;
+  -webkit-filter:drop-shadow(4px 4px 0 var(--dark));filter:drop-shadow(4px 4px 0 var(--dark))}
+.epwhy{font-size:12.5px;color:var(--dim);margin:2px 0 4px;line-height:1.75;letter-spacing:.02em}
+.dim2{display:inline-block;margin-top:6px;font-size:12px;color:var(--dim)}
+.epnum small{font-size:16px}
+.axisrow{display:flex;gap:6px;justify-content:center;margin:12px 0 10px}
+.axisrow span{font-family:var(--cn);font-size:14px;font-weight:900;letter-spacing:.06em;padding:9px 6px;color:var(--dark);
+  border:3px solid var(--dark);box-shadow:3px 3px 0 rgba(0,0,0,.5)}
+.axisrow span:nth-child(1){background:var(--pink)}
+.axisrow span:nth-child(2){background:var(--gold)}
+.axisrow span:nth-child(3){background:var(--mint)}
+.axisrow span:nth-child(4){background:var(--sky)}
+.pname{font-family:var(--cn);font-size:23px;font-weight:900;letter-spacing:.1em;color:var(--cream);
+  text-shadow:3px 3px 0 var(--dark);margin:10px 0 6px}
+.tagline{font-size:16px;font-weight:800;letter-spacing:.03em;margin:2px 0 4px}
+.tagline em{font-style:normal;color:var(--gold);text-shadow:2px 2px 0 var(--dark)}
+.mtype{font-size:12.5px;color:var(--dim)}
+.mod{margin-bottom:14px}
+.modhead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.modno{font-family:var(--pf);font-size:9px;color:var(--dark);padding:5px 6px;
+  border:2px solid var(--dark);box-shadow:3px 3px 0 rgba(0,0,0,.4)}
+.modno.n1{background:var(--pink)}
+.modno.n2{background:var(--gold)}
+.modno.n3{background:var(--sky)}
+.modno.n4{background:var(--mint)}
+.modtitle{font-size:14px;font-weight:800;color:var(--cream)}
+.modbody{font-size:14px;line-height:1.85;color:#e8e3ff}
+.modbody p{margin:0 0 9px}
+.modbody .hl{background:rgba(255,210,63,.16);padding:1px 4px;border-bottom:2px solid var(--gold)}
+.modbody .kw{color:var(--mint);font-weight:700}
+.quip{background:rgba(176,124,255,.14);border-left:4px solid var(--violet);
+  padding:10px 12px;font-size:13.5px;line-height:1.8;color:#eee7ff}
+.advice{border-left:4px solid var(--mint);background:rgba(79,227,165,.1);
+  padding:10px 12px;font-size:13.5px;line-height:1.8}
+.grid16{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:10px}
+.g16{border:2px solid var(--dark);background:rgba(255,255,255,.05);padding:8px 8px;
+  box-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.g16 .m{font-family:var(--cn);font-size:12px;font-weight:900;color:var(--gold);letter-spacing:.04em}
+.g16 .t{font-size:12px;color:#e8e3ff;line-height:1.6;font-weight:700}
+.g16 .d{font-size:11px;color:var(--dim);line-height:1.6}
+
+/* ================= 分享弹层 ================= */
+.mask{position:fixed;inset:0;background:rgba(5,3,16,.86);z-index:40;display:none;
+  padding:18px;overflow:auto}
+.mask.show{display:block}
+.sharebox{max-width:420px;margin:0 auto;text-align:center}
+.sharebox canvas{width:100%;height:auto;display:block;border:3px solid var(--dark);
+  box-shadow:6px 6px 0 rgba(0,0,0,.5);image-rendering:pixelated}
+.sharetip{font-size:12px;color:var(--dim);margin:10px 0 12px;line-height:1.7}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
+  background:var(--cream);color:var(--dark);font-size:13px;font-weight:800;
+  padding:11px 16px;border:3px solid var(--dark);box-shadow:4px 4px 0 rgba(0,0,0,.5);
+  z-index:60;display:none}
+.toast.show{display:block;animation:fadeup .2s ease both}
+
+@media (max-width:420px){
+  h1.title{font-size:23px}
+  h1.title .sub{font-size:16px}
+  .epnum{font-size:38px}
+  .grid16{grid-template-columns:1fr}
+  .btn{width:100%;margin:6px 0 0}
+  .pager .btn{width:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span class="pixlogo"><i></i><i></i><i></i><i></i></span>
+    <span>PIXEL DRAMA TEST v1.0</span>
+    <span class="pixlogo"><i></i><i></i><i></i><i></i></span>
+  </div>
+
+  <!-- 加载 -->
+  <section id="s-load" class="stage show">
+    <div class="card flowbox a-violet" style="text-align:center;padding:26px 14px">
+      <div class="fl"></div>
+      <div class="loader"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="loadtxt">LOADING 像素剧本…</div>
+      <div style="font-size:12.5px;color:var(--dim);margin-top:10px">正在生成 32 条短剧生存线</div>
+    </div>
+  </section>
+
+  <!-- 首页 -->
+  <section id="s-home" class="stage">
+    <div class="card flowbox a-pink hero">
+      <div class="fl"></div>
+      <div class="badge">32 套剧本人设 × 2 个性别频道</div>
+      <h1 class="title">短剧人格鉴定<br><span class="sub flow">你的性格能在短剧里活几集？</span></h1>
+      <p class="desc">20 道情境题 · 10 种生存维度 · 一套不写在明面上的底层逻辑<br>你是苟到大结局的隐藏大佬，还是第 3 集就领盒饭的经典炮灰？</p>
+      <div class="gsel">
+        <div class="gslbl">STEP 1 · 先选你的频道，剧本会整套重排</div>
+        <div class="gbtns">
+          <div class="gbtn" data-g="f" role="button" tabindex="0"><span class="gi">♀</span>女生频道<small>真假千金 · 休夫逆袭 · 萌娃团宠</small></div>
+          <div class="gbtn" data-g="m" role="button" tabindex="0"><span class="gi">♂</span>男生频道<small>苟道修仙 · 阴湿疯批 · 扮猪吃虎</small></div>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>20</b>道情境题</span>
+        <span class="chip"><b>10</b>维生存场景</span>
+        <span class="chip"><b>32</b>套剧本人设</span>
+        <span class="chip"><b>2</b>个性别频道</span>
+      </div>
+      <div style="margin-top:14px">
+        <button id="btn-start" class="btn primary">▶ 开始鉴定</button>
+        <button id="btn-resume" class="btn mint" style="display:none">↺ 继续上次作答</button>
+      </div>
+      <div class="note">本测试仅为短剧文化趣味互动，结果仅供娱乐参考，不构成心理诊断或人生建议。</div>
+    </div>
+  </section>
+
+  <!-- 答题 -->
+  <section id="s-quiz" class="stage">
+    <div class="progwrap">
+      <div class="progtop">
+        <span>PAGE <span id="pgnow">1</span>/4</span>
+        <span class="pc" id="pgpct">0%</span>
+      </div>
+      <div class="prog" id="prog"></div>
+    </div>
+    <div id="qlist"></div>
+    <div class="pager">
+      <button id="btn-prev" class="btn ghost small">◀ 上一页</button>
+      <span class="pgtip" id="pgtip">选完 5 题自动进入下一页</span>
+      <button id="btn-next" class="btn primary small">下一页 ▶</button>
+    </div>
+  </section>
+
+  <!-- 解析 -->
+  <section id="s-parse" class="stage">
+    <div class="card flowbox a-sky" style="text-align:center;padding:26px 14px">
+      <div class="fl"></div>
+      <div class="loader"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="loadtxt">人格解析中…</div>
+      <div style="font-size:12.5px;color:var(--dim);margin-top:10px" id="parsetip">正在匹配短剧剧本与存活集数</div>
+    </div>
+  </section>
+
+  <!-- 结果 -->
+  <section id="s-result" class="stage">
+    <div class="card flowbox a-gold rhero">
+      <div class="fl"></div>
+      <div class="heroTop"><span class="modno n1">01</span><span class="chanbar" id="r-chan">女生频道</span></div>
+      <div class="lbl" id="r-eplbl">你的短剧存活集数</div>
+      <div class="epnum"><span id="r-ep" class="flow">0</span><small id="r-epunit"> 集</small></div>
+      <div class="epwhy" id="r-epwhy"></div>
+      <div class="axisrow" id="r-axis"></div>
+      <div class="pname" id="r-pname">—</div>
+      <div class="tagline"><em id="r-drama">—</em>｜<span id="r-tag">—</span></div>
+      <div class="kwrow" id="r-kw"></div>
+      <div class="mtype" id="r-mtype">娱乐向人格标签</div>
+    </div>
+    <div id="r-mods"></div>
+    <div class="note">本测试仅为短剧文化趣味互动，结果仅供娱乐参考，不构成心理诊断或人生建议。</div>
+    <div id="r-warn" class="note warn" style="display:none">剧情虚构，现实请理性解决问题。</div>
+    <div style="margin-top:14px">
+      <button id="btn-share" class="btn primary">⬛ 生成分享图</button>
+      <button id="btn-switch" class="btn violet small">⇄ 换个频道看</button>
+      <button id="btn-copy" class="btn sky small">复制结果文字</button>
+      <button id="btn-again" class="btn ghost small">↺ 再测一次</button>
+    </div>
+    <div class="card a-violet" style="margin-top:15px">
+      <div style="font-size:13.5px;font-weight:800;color:var(--cream);margin-bottom:6px" id="g16title">全部 16 套人设对照表</div>
+      <div class="grid16" id="grid16"></div>
+      <div style="font-size:11.5px;color:var(--dim);margin-top:9px">同一种活法换一部剧，就是另一条命 — 看看你差在哪。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 分享弹层 -->
+<div class="mask" id="mask">
+  <div class="sharebox">
+    <canvas id="sharecv"></canvas>
+    <div class="sharetip">长按或右键保存图片 · 扫码即可回到本测试</div>
+    <button id="btn-dl" class="btn mint">⬇ 保存图片到本地</button>
+    <button id="btn-close" class="btn ghost small">关闭</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================================
+   一、题目库：20 题 × 四个人格维度 × 8 类生存场景
+   v 值：正数 = 该维度首字母(E/S/T/J)，负数 = 次字母(I/N/F/P)
+   s 值：仅在 stress / trust 场景生效，用于 ±5 集微调
+   ========================================================================= */
+/* 题库：女频 / 男频各 20 题
+   dim = 底层四个计分维度（不外显）；facet = 场景维度（含新增的亲密关系、人际交往）
+   v = 该维度分值（正方向权重 2/1，反向 -1/-2）；s = 生存微调（仅关系与压力类题目携带） */
+const QF=[
+{id:1,dim:'EI',facet:'生存决策',ac:'pink',
+ q:'入宫第一天，贵妃当着所有人的面把茶泼在你脚边，让你跪着擦。你——',
+ o:[{t:'端起空杯笑盈盈敬回去：娘娘教得好，我这就学规矩',k:'当众接招不退场',v:2},
+    {t:'先扫一圈谁在憋笑，心里记下一笔',k:'环视全场记小账',v:1},
+    {t:'默默蹲下擦干净，心里把这局记下来',k:'闷头擦地记仇',v:-1},
+    {t:'擦完就走，头也不回',k:'擦完走人秋后算账',v:-2}]},
+{id:2,dim:'JP',facet:'生存决策',ac:'gold',
+ q:'末日倒计时三天，超市货架已经空了一半，你推着购物车——',
+ o:[{t:'按清单来：水、药、火种，一样都不能漏',k:'按清单精准扫货',v:2},
+    {t:'先装满最要紧的两样，剩下的明早再来',k:'先装要紧的再补',v:1},
+    {t:'先囤能换东西的，出去再跟人换',k:'囤硬通货再换',v:-1},
+    {t:'先转一圈看看别人都在抢什么',k:'先看别人抢什么',v:-2}]},
+{id:3,dim:'EI',facet:'人际信任',ac:'sky',
+ q:'贴身丫鬟深夜哭着来报：有人要对你下药，但她不肯说是谁。你——',
+ o:[{t:'把全院的人叫起来，当面对质',k:'当众对质撕开口子',v:2,s:-1},
+    {t:'拉她坐下细问，顺手端盘点心安抚',k:'安抚细问套实情',v:1,s:0},
+    {t:'先让她回去，自己把门窗查一遍',k:'遣返后自查门户',v:-1,s:1},
+    {t:'表面照旧，暗地把所有饮食换了',k:'不动声色换膳食',v:-2,s:1}]},
+{id:4,dim:'TF',facet:'人际信任',ac:'mint',
+ q:'你查出陷害自己的人，是跟了十年的乳母，她跪着说是为了给她儿子治病。你——',
+ o:[{t:'查账对质，该送官的送官',k:'查账后依规处置',v:2,s:1},
+    {t:'给她一条路：吐出赃款，从此两清',k:'划条件给条活路',v:1,s:0},
+    {t:'留她在身边看着，但不再给实权',k:'留人不用架空之',v:-1,s:1},
+    {t:'先把她儿子的病治了，再问她为什么',k:'先救人再问缘由',v:-2,s:-1}]},
+{id:5,dim:'TF',facet:'压力应对',ac:'violet',
+ q:'你被诬陷通敌，全家连坐入狱，明日午门问斩。最后一夜——',
+ o:[{t:'冷静梳理证据，找出诬告链条的漏洞',k:'冷静梳理证据链',v:2,s:1},
+    {t:'写信给每一个能救你的人',k:'广发求救信',v:1,s:0},
+    {t:'把家人护在身后，一夜不睡守着',k:'彻夜守着家人',v:-1,s:0},
+    {t:'先安抚吓哭的妹妹，自己再想办法',k:'先安顿家人再想办法',v:-2,s:1}]},
+{id:6,dim:'JP',facet:'压力应对',ac:'orange',
+ q:'抄家圣旨已下，你只有一个时辰带走最要紧的东西——',
+ o:[{t:'按清单来：地契、密信、银票，一样不落',k:'按清单精准打包',v:2,s:1},
+    {t:'先抓最值钱的，剩下的边走边看',k:'先抓大头随机应变',v:1,s:0},
+    {t:'随手抓个包袱，跑出去再说',k:'随手抓包先跑',v:-1,s:0},
+    {t:'空手走人，看清局面再回来取',k:'空手撤离看局势',v:-2,s:1}]},
+{id:7,dim:'TF',facet:'情感模式',ac:'pink',
+ q:'世子说等他平了叛就回来娶你。三年后他回来了，身边多了个有孕的侧妃。你——',
+ o:[{t:'算清这三年的账，让他自己看看欠了多少',k:'算清这笔账',v:2},
+    {t:'把话摊开说清楚，能过就过不能过就散',k:'摊牌后再决定',v:1},
+    {t:'什么都没说，第二天搬出了世子府',k:'沉默搬离',v:-1},
+    {t:'还是笑着迎他进门，转头给自己留了后路',k:'笑着接驾留后路',v:-2}]},
+{id:8,dim:'SN',facet:'情感模式',ac:'gold',
+ q:'他说我都是为了你好，然后替你推掉了你谈了三个月的一桩生意。你的第一反应——',
+ o:[{t:'那你说说，我这三个月的进项你赔不赔',k:'直接要赔偿',v:2},
+    {t:'先问清楚他到底跟谁谈过',k:'先问清来龙去脉',v:1},
+    {t:'觉得他话里有话，开始琢磨背后的意思',k:'琢磨话外音',v:-1},
+    {t:'脑子里已经把这段关系从头到尾过了一遍',k:'脑内复盘整段关系',v:-2}]},
+{id:9,dim:'TF',facet:'价值取向',ac:'sky',
+ q:'复仇到了最后一步：杀他，你全家平反；放过他，母亲的仇就没了下文。你——',
+ o:[{t:'按律法办，让他自己认罪伏法',k:'依法办事认罪伏法',v:2},
+    {t:'让他活着，但把名声、家产、尊严一样样拿走',k:'夺走一切留他一命',v:1},
+    {t:'下不去手，但也不会原谅，从此不见',k:'不杀不赦此生不见',v:-1},
+    {t:'放过他，因为母亲活着时最恨的就是冤冤相报',k:'为母亲的愿放下',v:-2}]},
+{id:10,dim:'SN',facet:'价值取向',ac:'mint',
+ q:'你手里有一笔能改变命运的钱、一间稳赚的铺面、一张去南洋的船票。你——',
+ o:[{t:'买铺面，租金月月进账最实在',k:'买铺面收租',v:2},
+    {t:'一半买铺面，一半留着应急',k:'一半稳妥一半备用',v:1},
+    {t:'想去南洋看看有没有更大的机会',k:'想去南洋搏大的',v:-1},
+    {t:'钱不重要，我想看看这条路的尽头是什么',k:'追寻路的尽头',v:-2}]},
+{id:11,dim:'SN',facet:'信息处理',ac:'violet',
+ q:'宫里传疯了：太后要在下月初八给皇上选妃。你听到后的第一反应——',
+ o:[{t:'去查初八那天谁值班、谁去送礼',k:'查排班与送礼名单',v:2},
+    {t:'先确认这消息是谁放出来的',k:'追溯消息源头',v:1},
+    {t:'想想这事跟之前那几桩有没有关系',k:'联想其他线索',v:-1},
+    {t:'脑子里已经开始推演三种后续走向',k:'脑内推演三种走向',v:-2}]},
+{id:12,dim:'EI',facet:'信息处理',ac:'orange',
+ q:'你在废苑的枯井里，翻出一本十年前的账册。你——',
+ o:[{t:'立刻拿给信得过的人一起看',k:'找人一起看账册',v:2},
+    {t:'先跟贴身的人商量该怎么办',k:'与亲信商量',v:1},
+    {t:'自己一个人翻完，先把关键页抄下来',k:'独自抄录关键页',v:-1},
+    {t:'不带走，先记住位置，回头再说',k:'记位置不动声色',v:-2}]},
+{id:13,dim:'JP',facet:'行动节奏',ac:'pink',
+ q:'仇家今天大婚，你的复仇计划还差最后一步没布置完。你——',
+ o:[{t:'按原计划走，一切照排期来',k:'按原计划执行',v:2},
+    {t:'先把能做的做完，剩下的临场补',k:'先做能做的',v:1},
+    {t:'干脆换个路子，趁乱下手',k:'临时改道趁乱下手',v:-1},
+    {t:'计划赶不上变化，先去现场看看再说',k:'临场看情况再定',v:-2}]},
+{id:14,dim:'SN',facet:'行动节奏',ac:'gold',
+ q:'你只有一盏茶的工夫，要把一封信送进戒备森严的王府。你——',
+ o:[{t:'走送菜的后门，那条路我走过',k:'走熟路后门',v:2},
+    {t:'找个最不起眼的人混进去',k:'混入人群',v:1},
+    {t:'先想想今天王府什么时辰最松',k:'推算守卫空隙',v:-1},
+    {t:'先爬上墙头看一眼布局再说',k:'先登高看布局',v:-2}]},
+{id:15,dim:'EI',facet:'自我认知',ac:'sky',
+ q:'夜深人静，回看这一路，你觉得自己最像哪种人？',
+ o:[{t:'走到哪儿都能拢住一帮人的人',k:'天生能聚人',v:2},
+    {t:'有人愿意跟着我，是因为我对他们好',k:'待人好所以有人跟',v:1},
+    {t:'不太合群，但关键时刻靠得住',k:'不合群但靠得住',v:-1},
+    {t:'从来都是一个人扛过来的',k:'向来一个人扛',v:-2}]},
+{id:16,dim:'JP',facet:'自我认知',ac:'mint',
+ q:'如果人生能重来一次，你最想改的是——',
+ o:[{t:'把当年的计划做得再细一点',k:'计划做得更细',v:2},
+    {t:'把该说的话早点说出口',k:'早点把话说出口',v:1},
+    {t:'少想一点，多冲一次',k:'少想多做',v:-1},
+    {t:'不打算改，弯路也是路',k:'弯路也是路',v:-2}]},
+{id:17,dim:'TF',facet:'亲密关系',ac:'violet',
+ q:'他为了护你，当众把罪名全揽到自己身上，被押入天牢。你——',
+ o:[{t:'先算清楚怎么把他捞出来，哭没有用',k:'先算怎么捞人',v:2,s:1},
+    {t:'一边想办法救人，一边托人照顾牢里的他',k:'救人同时安顿好他',v:1,s:0},
+    {t:'守在牢门外，等他出来',k:'守在牢门外等他',v:-1,s:-1},
+    {t:'把他的家人接到府里，替他撑起这个家',k:'替他撑起这个家',v:-2,s:0}]},
+{id:18,dim:'EI',facet:'亲密关系',ac:'orange',
+ q:'你和他大吵一架，两个人都在气头上。接下来你会——',
+ o:[{t:'当晚就把话说开，吵到天亮也要吵明白',k:'当晚说开吵到天亮',v:2,s:-1},
+    {t:'找共同的朋友来劝一劝',k:'找朋友来劝',v:1,s:0},
+    {t:'各自冷静两天，等气消了再说',k:'各自冷静两天',v:-1,s:1},
+    {t:'一个人出去走一圈，想清楚了再回来',k:'独自走一圈想清楚',v:-2,s:1}]},
+{id:19,dim:'JP',facet:'人际交往',ac:'pink',
+ q:'府里新来一位娘娘，第一天就给全府上下都送了礼。你——',
+ o:[{t:'按规矩回礼，礼单记清楚，往来分明',k:'按规矩回礼记账',v:2,s:1},
+    {t:'回一份差不多的，以后再看情况',k:'回礼后观察',v:1,s:0},
+    {t:'先看看别人怎么回，再决定自己怎么办',k:'看别人怎么做',v:-1,s:0},
+    {t:'收下就好，来日方长',k:'收下礼来日方长',v:-2,s:-1}]},
+{id:20,dim:'SN',facet:'人际交往',ac:'gold',
+ q:'席间有人当众说你的衣料寒酸，全场都看了过来。你——',
+ o:[{t:'直接报出这料子的名字和价钱，堵住她的嘴',k:'报出价码堵嘴',v:2,s:-1},
+    {t:'笑着说姐姐好眼力，转头查她今天戴了什么',k:'笑着接话暗中记下',v:1,s:0},
+    {t:'不动声色，想想她为什么挑这个时候说',k:'琢磨她为何此时开口',v:-1,s:1},
+    {t:'心里把这人的性子摸了一遍，知道以后怎么相处',k:'摸清性格预判相处',v:-2,s:1}]}
+];
+
+const QM=[
+{id:1,dim:'EI',facet:'生存决策',ac:'pink',
+ q:'重生回到被家族除名那天，祠堂里站满了等着看你笑话的人。你的开场——',
+ o:[{t:'当着祖宗牌位，把这三年的账一笔笔念出来',k:'当众念账当众翻脸',v:2},
+    {t:'先跟族老挨个打招呼，摸清谁站哪边',k:'挨个寒暄摸阵营',v:1},
+    {t:'一言不发磕完头，转身就走',k:'磕完头转身走人',v:-1},
+    {t:'连夜收拾东西，天亮前离开这个家',k:'连夜离家不回头',v:-2}]},
+{id:2,dim:'JP',facet:'生存决策',ac:'gold',
+ q:'系统提示：三十秒后末日降临。你手边只有一部手机和一把车钥匙——',
+ o:[{t:'按清单抢时间：水、药、火种，一样不落',k:'按清单抢购物资',v:2},
+    {t:'先冲最近的超市，能拿多少拿多少',k:'先冲超市扫货',v:1},
+    {t:'先开车出城，路上再想缺什么',k:'先出城再想缺什么',v:-1},
+    {t:'先躺平三十秒，等系统给下一步提示',k:'等系统下一步提示',v:-2}]},
+{id:3,dim:'EI',facet:'人际信任',ac:'sky',
+ q:'副本里遇到一个跟你长得一模一样的人，他说他是来帮你的。你——',
+ o:[{t:'当场拉他组队，人多好办事',k:'当场拉他组队',v:2,s:-1},
+    {t:'先跟他聊两句，看看他知道你多少事',k:'聊天试探底细',v:1,s:0},
+    {t:'保持距离，让他走在前面',k:'保持距离让他探路',v:-1,s:1},
+    {t:'直接走人，主动凑上来的都有问题',k:'直接走人不接茬',v:-2,s:1}]},
+{id:4,dim:'TF',facet:'人际信任',ac:'mint',
+ q:'跟你十年的兄弟，在最后一关把刀架在你脖子上，说全家在对方手里。你——',
+ o:[{t:'先算一下，他的死活和任务成败哪个重要',k:'先算利弊再动手',v:2,s:1},
+    {t:'给他一个选择：放下刀，我保你全家',k:'给选择让他自己选',v:1,s:0},
+    {t:'推开他，但从此不再当兄弟',k:'推开他断交情',v:-1,s:1},
+    {t:'问他一句：这十年，有没有一句是真的',k:'问一句是真是假',v:-2,s:-1}]},
+{id:5,dim:'TF',facet:'压力应对',ac:'violet',
+ q:'公司账上只剩三万，明早要发五十个人的工资，合伙人刚卷款跑路。你——',
+ o:[{t:'先算清缺口，挨个谈延期，能谈下一个是一个',k:'算清缺口逐个谈',v:2,s:1},
+    {t:'先垫自己的钱把工资发了，明天再算账',k:'自掏腰包先发工资',v:1,s:0},
+    {t:'一个人关在办公室，把最坏的情况想一遍',k:'独处推演最坏情况',v:-1,s:0},
+    {t:'先给家里打个电话，听声音稳住自己',k:'给家里打电话稳神',v:-2,s:1}]},
+{id:6,dim:'JP',facet:'压力应对',ac:'orange',
+ q:'决赛前夜，你的核心代码被人删了，八小时后就是发布会。你——',
+ o:[{t:'按备份重来，通宵也得赶出来',k:'按备份通宵重写',v:2,s:1},
+    {t:'砍掉一半功能，先保证能演示',k:'砍功能保演示',v:1,s:0},
+    {t:'换一套方案，反正原来的也不够好',k:'换方案重做',v:-1,s:0},
+    {t:'先睡两小时，脑子清楚了再决定',k:'先睡两小时再说',v:-2,s:1}]},
+{id:7,dim:'TF',facet:'情感模式',ac:'pink',
+ q:'她等了你三年，你回来时已是万人之上的位置，她说不用了，已经订了亲。你——',
+ o:[{t:'算清这三年的账，把欠她的东西一样样还回去',k:'把欠她的还回去',v:2},
+    {t:'约她出来谈一次，谈完各自安好',k:'约谈一次了结',v:1},
+    {t:'什么都没说，把她未婚夫的公司买了下来',k:'默默买下对方公司',v:-1},
+    {t:'笑着祝福，转身把名下产业都转到了她名下',k:'笑着祝福转产业',v:-2}]},
+{id:8,dim:'SN',facet:'情感模式',ac:'gold',
+ q:'她说你变了，你说不上来哪里不对。你的第一反应是——',
+ o:[{t:'那你举个例子，我哪句话变了',k:'要具体例子',v:2},
+    {t:'问她最近是不是出了什么事',k:'问她最近出了什么事',v:1},
+    {t:'开始回想自己最近到底哪里不同',k:'回想自己哪里不同',v:-1},
+    {t:'意识到自己确实走到了另一个地方，而她没跟上',k:'察觉已经走远',v:-2}]},
+{id:9,dim:'TF',facet:'价值取向',ac:'sky',
+ q:'金手指给你两个选项：A 你活到结局，兄弟全灭；B 你中途退场，全员生还。你——',
+ o:[{t:'算一下最优解，总有人要牺牲',k:'权衡后选最优解',v:2},
+    {t:'找第三条路，两个我都要',k:'硬找第三条路',v:1},
+    {t:'选 B，但走之前把该交代的都交代了',k:'选退场安排好后事',v:-1},
+    {t:'选 B，没有理由，就是不能让他们死',k:'无条件保全员',v:-2}]},
+{id:10,dim:'SN',facet:'价值取向',ac:'mint',
+ q:'系统让你选：一个亿现金，还是一本能看见未来三天关键节点的笔记。你——',
+ o:[{t:'拿现金，落袋为安',k:'拿现金落袋为安',v:2},
+    {t:'拿现金，但先问能不能再换点别的',k:'拿现金还想换',v:1},
+    {t:'拿笔记，信息比钱值钱',k:'拿信息换先机',v:-1},
+    {t:'拿笔记，我想看看三天后的自己',k:'想看三天后的自己',v:-2}]},
+{id:11,dim:'SN',facet:'信息处理',ac:'violet',
+ q:'你发现这个副本的规则，跟上一关有一点不一样。你——',
+ o:[{t:'把上一关的规则一条条列出来对照',k:'逐条对照找差异',v:2},
+    {t:'先去找 NPC 问清楚这一关的规矩',k:'找 NPC 问规矩',v:1},
+    {t:'想想是不是有什么隐藏前提变了',k:'推敲隐藏前提',v:-1},
+    {t:'直接试一下，看它到底会怎么反应',k:'直接试探反应',v:-2}]},
+{id:12,dim:'EI',facet:'信息处理',ac:'orange',
+ q:'你在敌军主营的沙盘上，看到了自己老家的兵力部署。你——',
+ o:[{t:'立刻把消息传给所有人',k:'立刻传信给全员',v:2},
+    {t:'先找几个信得过的人确认',k:'找亲信确认',v:1},
+    {t:'自己先抄一份，把关键处背下来',k:'独自抄录背下',v:-1},
+    {t:'不动它，先把整个营地的布防看一遍',k:'不动声色看布防',v:-2}]},
+{id:13,dim:'JP',facet:'行动节奏',ac:'pink',
+ q:'万事俱备只差一个签字，但你现在觉得哪里不对劲。你——',
+ o:[{t:'按流程走，签完立刻启动',k:'按流程签字启动',v:2},
+    {t:'先签，同时让人盯着那个不对劲的地方',k:'先签同时盯着',v:1},
+    {t:'先停一下，想清楚再签',k:'暂停想清楚再签',v:-1},
+    {t:'不签了，换个方案重来',k:'换方案推倒重来',v:-2}]},
+{id:14,dim:'SN',facet:'行动节奏',ac:'gold',
+ q:'追兵还有五百米，前面是断桥和一条没走过的山路。你——',
+ o:[{t:'走老路，把桥搭起来',k:'搭桥走老路',v:2},
+    {t:'走山路，至少现在就能跑',k:'走山路上算',v:1},
+    {t:'先看看山路口有没有人走过的痕迹',k:'查看路上痕迹',v:-1},
+    {t:'先算一下两条路的通关概率',k:'先算通关概率',v:-2}]},
+{id:15,dim:'EI',facet:'自我认知',ac:'sky',
+ q:'所有人都在等你一句话。你心里想的是——',
+ o:[{t:'那就由我来定，错了算我的',k:'我来拍板',v:2},
+    {t:'先问问大家怎么想，再一起定',k:'先听大家意见',v:1},
+    {t:'我更适合在旁边把事情做干净',k:'适合执行',v:-1},
+    {t:'别看我，我只想把这件事做完',k:'只想把事做完',v:-2}]},
+{id:16,dim:'JP',facet:'自我认知',ac:'mint',
+ q:'如果给你一次重开的机会，你会——',
+ o:[{t:'把每一步都提前推演到结局',k:'提前推演到结局',v:2},
+    {t:'把该说的话，早点说出口',k:'早点把话说出口',v:1},
+    {t:'少算一点，多赌一次',k:'少算多赌',v:-1},
+    {t:'不改，这一路的坑也是我的路',k:'坑也是我的路',v:-2}]},
+{id:17,dim:'TF',facet:'亲密关系',ac:'violet',
+ q:'她为了保住你的秘密，当众承认自己是内鬼，被全城通缉。你——',
+ o:[{t:'先算清楚怎么把她捞出来，情绪没用',k:'先算怎么捞人',v:2,s:1},
+    {t:'一边救人，一边安排她的退路',k:'救人同时安排退路',v:1,s:0},
+    {t:'守在她藏身的地方，一步不离',k:'守着她一步不离',v:-1,s:-1},
+    {t:'把她送走，自己留下来顶罪',k:'送走她自己顶罪',v:-2,s:-1}]},
+{id:18,dim:'EI',facet:'亲密关系',ac:'orange',
+ q:'你们冷战第七天，她发了条只有你能看懂的朋友圈。你——',
+ o:[{t:'直接打电话过去，把话说清楚',k:'直接打电话说清',v:2,s:-1},
+    {t:'发消息约她出来当面聊',k:'约出来当面聊',v:1,s:0},
+    {t:'看了三遍什么都没回，但订了她爱吃的店',k:'沉默但订了她爱吃的店',v:-1,s:1},
+    {t:'删了又写写了又删，最后只点了个赞',k:'写了又删最后点赞',v:-2,s:0}]},
+{id:19,dim:'JP',facet:'人际交往',ac:'pink',
+ q:'酒局上有人当众敬你，话里全是坑。你——',
+ o:[{t:'按规矩回敬，把话接住再原样还回去',k:'按规矩回敬还回去',v:2,s:1},
+    {t:'笑着喝了，回头再琢磨他那句话',k:'笑着喝了回头琢磨',v:1,s:0},
+    {t:'看他一眼什么都不说，等他先急',k:'沉默等他先急',v:-1,s:0},
+    {t:'直接岔开话题，聊点别的',k:'岔开话题',v:-2,s:-1}]},
+{id:20,dim:'SN',facet:'人际交往',ac:'gold',
+ q:'新来的同事第一天就请全组喝奶茶，唯独跳过了你。你——',
+ o:[{t:'下次我请，把他的也一起买了',k:'下次我请带上他',v:2,s:-1},
+    {t:'当没看见，按自己的节奏来',k:'当没看见按自己节奏',v:1,s:0},
+    {t:'想想他为什么跳过我',k:'琢磨为何跳过我',v:-1,s:1},
+    {t:'不急，先看看他跟谁走得近',k:'先观察他的人脉网',v:-2,s:1}]}
+];
+
+/* 当前频道题库（选完性别后切换） */
+let QUESTIONS=QF;
+
+const DIM_LETTER={EI:['E','I'],SN:['S','N'],TF:['T','F'],JP:['J','P']};
+
+/* =========================================================================
+   二、16 型 × 16 类短剧剧本（素材库：类型 / 人物标签 / 白话套路 / 网感调侃 / 关键词 / 适配维度）
+   ep = 该剧本角色在短剧里的典型存活区间
+   ========================================================================= */
+const PERSONAS={
+/* theory = 人格层共用解读（不含任何外部测评术语）；f/m = 同一底层人格在女频 / 男频的剧本呈现
+   ep 说明：[下限,上限] 正常区间；'short' 活不过三集；'inf' 无限 */
+INTJ:{theory:'习惯先把局势建模，再决定要不要出手。',
+ f:{title:'无声操盘手',drama:'无限流闯关',tag:'常驻永生玩家',ep:'inf',risk:true,
+  trope:'副本开了一百次她还在，规则背得比系统还熟，靠推演把每次必死局走成送分题。',
+  quip:'无限流里的“常驻钉子户”，别人求生她刷成就，主打一个“存档点我一次没用过，复读数我全场第一”。',
+  kw:['规则敏感','全局推演','情绪绝缘'],fit:['信息处理','情绪管理'],
+  survive:'三条铁律：不接私活、不交真名、不占规则外的便宜。副本里九成死法都从这三处破，你的死亡 Flag 从来点不着——第 1 集进本，第 ∞ 集还在。',
+  advice:'允许自己保留一点“还没想好”，不必把所有事当场闭环。'},
+ m:{title:'破壁人',drama:'规则怪谈',tag:'死亡 Flag 清除师',ep:[85,100],risk:true,
+  trope:'掉进诡异副本不急着跑，先把规则逐字抠漏洞，把存活率算到小数点后一位。',
+  quip:'恐怖本里的“人形检索器”，别人跑他记笔记，主打一个“鬼还没加班，你先卷上了”。',
+  kw:['规则敏感','全局推演','情绪绝缘'],fit:['信息处理','危机处理'],
+  survive:'恐惧在你这里只是变量，破绽只出在草稿纸上。所有催你“快一点”的话，你都会先问一句凭什么——所以能停在 90 集往上。',
+  advice:'别把日子过成攻防表，偶尔“没算明白就先答应”。'}},
+
+INTP:{theory:'遇事先拆变量、算概率，只服逻辑不服嗓门。',
+ f:{title:'人形攻略本',drama:'古装探案',tag:'对着尸体讲道理的仵作',ep:[70,95],risk:true,
+  trope:'靠尸检与物证说话，在所有人凭感觉断案的时候，用一根骨头推翻整桩冤案。',
+  quip:'探案界“唯一不感情用事的人”，主打一个“你们吵你们的，我看我的尸斑”。',
+  kw:['实证精神','细节还原','逻辑闭环'],fit:['信息处理','系统思考'],
+  survive:'探案剧死得最快的都是急着知道真相的人，而你只信看得见的证据。每集往墙上钉一条线索，钉到 90 集，墙满了，案也破了。',
+  advice:'给想法排个执行顺序，先做前三个就够了。'},
+ m:{title:'主神级玩家',drama:'无限流闯关',tag:'低耗通关机器',ep:[75,95],risk:true,
+  trope:'被丢进无限流先算资源、概率与队友能力值，再挑最省力那条通关路径。',
+  quip:'无限流“人形计算器”，别人冲刺他算步数，主打一个“我走的每一步，都是最优解里最省力的那个”。',
+  kw:['概率思维','资源统筹','低耗通关'],fit:['系统思考','领导力'],
+  survive:'你的集数是省出来的：别人花一集换一条命，你花半集换两条。越到后期副本你越省，所以停在后段。',
+  advice:'算不明白的事，不如直接去问当事人。'}},
+
+ENTJ:{theory:'目标一定，资源人脉立刻重新排队。',
+ f:{title:'真千金本尊',drama:'真假千金',tag:'觉醒真千金',ep:[75,95],risk:false,
+  trope:'流落民间的真千金回归豪门，被假千金与全家排挤，靠隐藏技能和商业手段夺回身份，打脸全员。',
+  quip:'短剧“逆袭天花板”，别人靠爹妈她靠脑子，主打一个“你们嫌弃的草，是商界大佬的宝”。',
+  kw:['坚韧独立','清醒复仇','技能满点'],fit:['自我价值','逆境应对'],
+  survive:'你不是被剧情推着走，是推着剧情走：每次被踩都被你换算成筹码，仇人越多资源池越大。集数由“还有几个没打完的脸”决定。',
+  advice:'给自己留一个不打仗的周末，胜利也需要有人看见。'},
+ m:{title:'归位者',drama:'真假少爷',tag:'流落在外的真继承人',ep:[75,95],risk:false,
+  trope:'抱错二十年的真少爷被找回豪门，被假少爷和全家防贼一样防着，靠硬实力把名分一寸寸拿回来。',
+  quip:'豪门“认亲天花板”，别人哭着认亲他拿着报表认亲，主打一个“你们防的是贼，回来的是董事长”。',
+  kw:['清醒自持','长线布局','结果导向'],fit:['自我认同','逆境应对'],
+  survive:'你不跟人抢椅子，你直接把桌子买下来。豪门剧的集数取决于“还有几个没认清你分量的人”——而那种人，一集冒一个。',
+  advice:'赢回来的位置要坐得久，靠的不只是账本，还有愿意留下的人。'}},
+
+ENTP:{theory:'闻到既定规则就想翻到背面看看。',
+ f:{title:'反杀辩手',drama:'重生复仇',tag:'不撕逼只搞钱的清醒姐',ep:[60,85],risk:false,
+  trope:'前世被害得家破人亡，重生后不哭不闹，靠信息差一步步把对方的气运与资产全搬空。',
+  quip:'重生界“反狗血标杆”，不撕逼只搞钱，主打一个“你的报应不是我动手，是你自己作出来的”。',
+  kw:['信息差','临场变招','情绪隔离'],fit:['决策模式','创伤修复'],
+  survive:'你活得久靠“不按对方写的剧本走”：对方每集挖一个坑，你就把坑改成自家鱼塘。重生剧里最先死的都是急着当场翻脸的人。',
+  advice:'偶尔允许自己先吵完架再复盘，情绪也需要出口。'},
+ m:{title:'阴湿疯批',drama:'权谋黑化',tag:'温润表象下的偏执者',ep:[30,55],risk:true,
+  trope:'表面温润如玉的谋士，实则偏执到骨子里，为一个人能把整盘棋下成死局，也在最后一步把自己赔进去。',
+  quip:'权谋剧“白切黑天花板”，笑得越温柔下手越狠，主打一个“我对你温柔，不代表我对这个世界温柔”。',
+  kw:['偏执深情','长线布局','表里反差'],fit:['亲密关系','权力关系'],
+  survive:'你的集数卡在 30-55：够聪明所以死不了，太执着所以活不长。你能算清天下人的心思，唯独在她那一格上从来不肯算——那格就是死穴。',
+  advice:'把一个人的分量，放回一整个人生里称一称。'}},
+
+INFJ:{theory:'看得见关系里的暗流，也忍得住不立刻掀桌。',
+ f:{title:'白月光复仇者',drama:'深宫权谋',tag:'笑到最后的幕后太后',ep:[65,90],risk:false,
+  trope:'从最不起眼的答应做起，二十年不争一日之短长，把每一次恩宠换成筹码，最后坐在帘子后面定天下。',
+  quip:'宫斗界“终极BOSS养成记”，主打一个“你们抢的是宠，我攒的是筹码”。',
+  kw:['长线布局','洞察人心','情绪隔离'],fit:['权力关系','自我成长'],
+  survive:'宫斗剧活到最后的不是最得宠的，是最沉得住气的。你把每一集的情绪都换成筹码，攒到 90 集，牌桌已经归你了。',
+  advice:'恨是一种很贵的燃料，烧完记得给自己留一点。'},
+ m:{title:'蛰伏者',drama:'重生复仇',tag:'隔代收割手',ep:[65,90],risk:false,
+  trope:'前世被至亲与盟友联手做局，重生后不报近仇，先在下一代身上埋好三颗种子，二十年后一次性收割。',
+  quip:'重生界“延迟满足天花板”，别人报仇按月算，他按代算，主打一个“我不急，我等你们的孩子长大”。',
+  kw:['长期主义','隐忍布局','洞察人心'],fit:['决策模式','自我成长'],
+  survive:'你能活到 90 集，因为把复仇做成了长线投资：每集都在给二十年后那次收割攒筹码，中间任何一集你都舍不得死。',
+  advice:'长线很好，但别把当下的日子也一起押进去。'}},
+
+INFP:{theory:'把每段关系都当成内心史诗，被踩了底线就彻底重写人生设定。',
+ f:{title:'断情证道',drama:'仙侠虐恋',tag:'为爱泣血后醒来的仙子',ep:[35,60],risk:false,
+  trope:'为爱牺牲却被辜负，觉醒后斩断情丝专注修炼与守护苍生，让前任追悔莫及。',
+  quip:'仙侠界“恋爱脑康复样本”，以前为爱流泪，现在为道流血，主打一个“男人只会影响我拔剑的速度”。',
+  kw:['自我觉醒','边界重建','精神独立'],fit:['情感模式','自我成长'],
+  survive:'前 30 集你血条只有一格——把命交出去过一次的人就是这样。断情证道那集血条回满加了护盾，没人能再捏你最软的地方，于是撑到 60 集。',
+  advice:'你的深情很贵，别先给，先看值不值。'},
+ m:{title:'少年将军',drama:'家国热血',tag:'一腔孤勇的赤诚人',ep:'short',risk:true,
+  trope:'十七岁挂帅，明知是死局也要冲在最前，为一句承诺单骑回城，把最后一滴血流在城门下。',
+  quip:'热血剧“意难平天花板”，主打一个“道理我都懂，但这条道我得走到黑”。',
+  kw:['赤诚孤勇','说到做到','宁折不弯'],fit:['价值取向','亲密关系'],
+  survive:'你活不过三集恰恰因为太干净：第 1 集替兄弟接军令，第 2 集明知埋伏也去，第 3 集为一句承诺单骑回城——每集有人拉，你都摆手。',
+  advice:'守住赤诚没错，但先问一句：这个代价，是不是一直只有你在付。'}},
+
+ENFJ:{theory:'自动接管一个群体的方向与情绪。',
+ f:{title:'家族主心骨',drama:'家庭伦理',tag:'代际和解守护者',ep:[40,65],risk:false,
+  trope:'面对扶弟魔、恶婆婆、叛逆子女这一地鸡毛，用智慧化解冲突，把一盘散沙重新捏成一家人。',
+  quip:'家庭剧“情绪灭火器”，不硬刚只巧解，主打一个“家不是讲理的地方，但可以讲方法”。',
+  kw:['包容韧性','沟通技巧','边界柔和'],fit:['家庭关系','情绪调节'],
+  survive:'家庭剧不靠战斗力续命，靠你每次在爆炸前一秒剪断引线——剪一次续一集，剪到 60 集。',
+  advice:'你是全家的监护人，但你也需要一个监护人。'},
+ m:{title:'兄弟连主将',drama:'热血兄弟连',tag:'把散兵带成铁军的人',ep:[40,65],risk:true,
+  trope:'一群各有缺陷的兵痞被他捏成一支铁军，兄弟一个个倒下，他背着所有人的份继续往前冲。',
+  quip:'热血剧“收容所所长”，主打一个“你们四个的命，我一个人替你们扛”。',
+  kw:['责任担当','凝聚人心','外刚内柔'],fit:['领导力','亲密关系'],
+  survive:'你能活到 60 集，因为整支队伍都在替你挡刀；你活不到 100 集，因为你每次都站在最外面那层。兄弟越多，活得越久也越危险。',
+  advice:'让人依靠不等于把命摊开给人踩。'}},
+
+ENFP:{theory:'对气氛与善意极端敏感，天生会攒局。',
+ f:{title:'团宠小太阳',drama:'萌宝团宠',tag:'全家都护着的神助攻',ep:[30,55],risk:false,
+  trope:'带着天才萌宝回归，用童言童语拆穿反派，靠一张嘴和一颗真心把全家拧成一股绳。',
+  quip:'短剧“最强辅助 NPC”，年纪不大但情商碾压全场，主打一个“我不是来卖萌的，是来推进剧情的”。',
+  kw:['高情商','感染力','共情力'],fit:['社交智慧','家庭角色'],
+  survive:'你的护甲是人缘：谁都舍不得动你。但团宠剧的代价是曝光太高，随机冲突一来你首当其冲，所以停在 30-55 集。',
+  advice:'温暖别人的同时，也给自己留一盏不借给任何人的灯。'},
+ m:{title:'奶爸辅助位',drama:'萌娃奶爸',tag:'把娃带成全场团宠的老父亲',ep:[35,60],risk:false,
+  trope:'退役大佬带着小祖宗隐居，本想躺平，结果被自家娃推着一路重出江湖。',
+  quip:'带娃界“反向鸡血样本”，主打一个“我本想退隐山林，孩子替我接了所有商单”。',
+  kw:['高情商','守护欲','随遇而安'],fit:['家庭角色','社交智慧'],
+  survive:'你的血条跟娃绑定：娃在就有光环转发，娃一哭全城大佬都来救场。奶爸剧能撑到 60 集，全靠小祖宗今天又闯了什么祸。',
+  advice:'别把所有身份都让给“父亲”，你首先是你自己。'}},
+
+ISTJ:{theory:'信流程与复利，把手上的事做到位比什么都踏实。',
+ f:{title:'闷声暴富户',drama:'年代种田',tag:'赶海致富能手',ep:[70,95],risk:false,
+  trope:'穿到七八十年代，靠赶海、手艺和囤货踏实致富，把全家从漏雨的土房一步步带进新楼房。',
+  quip:'年代剧“烟火气卷王”，不搞宫斗只搞生产，主打一个“幸福不是等来的，是一锄头一锄头挖出来的”。',
+  kw:['勤劳务实','适应力强','家庭责任感'],fit:['生活态度','价值观'],
+  survive:'种田剧是最不容易死人的赛道，你的集数基本等于攒了多少家底：别人暴富又返贫，你每天多存一块——攒到 90 集还在攒。',
+  advice:'允许自己偶尔买一次不用比较性价比的东西。'},
+ m:{title:'苟道真人',drama:'凡人修仙',tag:'稳健发育流',ep:[70,95],risk:false,
+  trope:'杂灵根废柴出身，不抢机缘不结死仇，别人筑基他囤丹，别人陨落他还在默默升级。',
+  quip:'修仙界“卷王里的老乌龟”，主打一个“你们先打，我先把这一瓶丹药嗑完”。',
+  kw:['未雨绸缪','风险厌恶','长期复利'],fit:['风险预判','成长心态'],
+  survive:'修仙剧死人只有两个原因：抢机缘、结死仇，你两样都不沾。别人前三十集把命拼完，你还在用他们掉落的装备稳步升阶。',
+  advice:'稳是本事，但有些机缘，错过就真的没有了。'}},
+
+ISFJ:{theory:'照顾自己人写在本能里，踩了线就变成一堵硬墙。',
+ f:{title:'宅斗老好人',drama:'末日求生',tag:'护着全队物资的后勤官',ep:[25,50],risk:false,
+  trope:'末日降临后不抢不夺，默默把全队的物资、药品和人心照看好，成为营地最离不开的那个人。',
+  quip:'末日“移动补给站”，别人打丧尸她记账，主打一个“你们负责杀敌，我负责让你们有命回来”。',
+  kw:['细致稳妥','守护欲','抗压耐力'],fit:['团队协作','风险预判'],
+  survive:'前 25 集你把每口水、每片药都算得比命还清，救的人最多；可断粮那集你总把自己排最后——后勤官的死法从来不是被咬，是饿。',
+  advice:'你的温柔很贵，答应前先问：是心甘，还是不好意思拒绝。'},
+ m:{title:'家族掌舵人',drama:'家族伦理',tag:'替全家兜底的沉默长子',ep:[30,55],risk:false,
+  trope:'父亲倒下后，长兄一个人扛下债、官司与所有亲戚的嘴，撑到最小的弟弟成家才敢倒。',
+  quip:'家族剧“人形承重墙”，主打一个“全家都在躲雨，只有我站在外面”。',
+  kw:['责任担当','忍耐力','护短'],fit:['家庭关系','情绪调节'],
+  survive:'你是全家最后一个倒下的，也是唯一没人接住的那个。30 集开始扛，55 集才终于有人问一句“哥，你还好吗”。',
+  advice:'先照顾好自己，再当那个兜底的人。'}},
+
+ESTJ:{theory:'对流程、权责和结果极度敏感，烦扯皮、信交付。',
+ f:{title:'降维打击BOSS',drama:'职场精英',tag:'隐藏身份的职场大佬',ep:[60,85],risk:false,
+  trope:'隐藏身份进公司，被同事排挤、被上司打压，最后用行业资源与专业能力逆转局势。',
+  quip:'职场“反内耗代言人”，不吵架只拿结果说话，主打一个“你的质疑，是我升职的背景板”。',
+  kw:['专业自信','结果导向','情绪钝感'],fit:['职业认同','冲突应对'],
+  survive:'职场剧没有刀光剑影，靠交付续命：每多交一个成果，就多一集不被裁。别人在会议室吵架，你在改第 17 版方案。',
+  advice:'结果很重要，但有些关系，不是靠交付能修回来的。'},
+ m:{title:'铁腕掌门人',drama:'宗门振兴',tag:'把破落门派带回巅峰的掌门',ep:[60,85],risk:false,
+  trope:'接手一个快散伙的宗门，清点田产、重建戒律、把混日子的长老全换掉，硬生生把三流门派拽回一流。',
+  quip:'修真界“破产重整专家”，主打一个“你们修的是仙，我修的是现金流”。',
+  kw:['铁腕执行','制度重建','结果导向'],fit:['领导力','职业认同'],
+  survive:'宗门剧的死法通常是内斗，而你把内斗提前写成了制度：谁干什么、拿多少、违反了怎么办。改成人治的那一刻，你就活到了 80 集。',
+  advice:'制度管得住事，管不住人心——偶尔也要单独找人聊聊。'}},
+
+ESFJ:{theory:'天然经营亲密关系网，谁有台阶下一眼就能看穿。',
+ f:{title:'后院CEO',drama:'宅斗内宅',tag:'把后院管成集团的主母',ep:[30,55],risk:false,
+  trope:'掌家十年，把一屋子明争暗斗的姨娘、婆母、妯娌调度得明明白白，谁闹情绪、谁要台阶，她一眼看穿。',
+  quip:'宅斗界“人力资源总监”，主打一个“后院不是宫斗现场，是我的 KPI 现场”。',
+  kw:['人情练达','场面调度','共情力'],fit:['人际交往','家庭关系'],
+  survive:'你活得久靠给每个人台阶下：台阶给够，就没人恨你到要你命。可你也踩在所有人情绪中央，被顺手波及是常态，所以停在 30-55 集。',
+  advice:'照顾好所有人之前，先照顾一下那个不被照顾的你。'},
+ m:{title:'情报枢纽',drama:'权谋江湖',tag:'谁都愿意跟他说两句的人',ep:[30,55],risk:true,
+  trope:'不是最会打的那个，但全城的消息都往他这儿汇；靠一张嘴一张网，在各方势力中间走出一活路。',
+  quip:'江湖“人形茶馆”，主打一个“刀不重要，重要的是我知道谁要拔刀”。',
+  kw:['消息灵通','左右逢源','人情练达'],fit:['人际交往','信息处理'],
+  survive:'情报贩子的集数取决于“你还被需要多久”：知道得越多越有用，也越危险。你能活到 55 集，靠的是从不把消息全部卖给同一个人。',
+  advice:'八面玲珑很累，留一个不用说话的角落给自己。'}},
+
+ISTP:{theory:'越乱越清醒，动手比开口快。',
+ f:{title:'荒野独狼',drama:'公路逃亡',tag:'绝地反击幸存者',ep:[45,70],risk:true,
+  trope:'遭遇追杀后踏上逃亡路，途中识破背叛、结盟队友，最终揭开真相完成反杀。',
+  quip:'短剧“移动副本玩家”，边跑边解谜，主打一个“信任可以没有，但脑子不能掉线”。',
+  kw:['警惕敏锐','应变灵活','边界清晰'],fit:['人际信任','危机处理'],
+  survive:'公路剧最先死的都是急着找同伴的人。你一个人在前面探路，把每次背叛当路况信息——别人靠运气过检查站，你靠先看懂检查站怎么运作。',
+  advice:'偶尔把背包放下来，让人帮你背一程。'},
+ m:{title:'刀口赏金客',drama:'公路逃亡',tag:'把危险当饭吃的赏金猎人',ep:[45,70],risk:true,
+  trope:'接了单才发现雇主才是猎物，一路被追杀一路反杀，最后把整条产业链连根掀了。',
+  quip:'公路片“行走的麻烦磁铁”，主打一个“我不找事，事排队找我”。',
+  kw:['身手利落','临场应变','独来独往'],fit:['危机处理','人际信任'],
+  survive:'前 45 集靠身手，45 集之后靠脑子——再能打也会累。你真正的续命方式，是让追杀你的人互相撞上。',
+  advice:'不是所有事都要一个人扛完，有些仗可以叫人一起打。'}},
+
+ISFP:{theory:'温和、不争，但触到底线说走就走，绝不回头解释。',
+ f:{title:'冲喜新娘',drama:'替嫁冲喜',tag:'一条路走到黑的痴人',ep:'short',risk:true,
+  trope:'替姐姐嫁进将门冲喜，明知夫家水深、药里有毒，还是端起来喝了，最后替他挡下那一剑。',
+  quip:'古言界“意难平天花板”，主打一个“全世界都在给我递梯子，我偏要往下跳”。',
+  kw:['赤诚到底','不辩解','宁折不弯'],fit:['亲密关系','价值取向'],
+  survive:'你活不过三集不是因为傻，是因为太真：第 1 集替姐上花轿，第 2 集明知药有问题还是喝，第 3 集替那个没正眼看过你的人挡剑。戏很短，没人忘得了。',
+  advice:'深情没错，但请先确认：那个人，也在替你挡。'},
+ m:{title:'归隐刀客',drama:'江湖浪客',tag:'挂剑归山的无名刀客',ep:[35,60],risk:true,
+  trope:'一把刀走完江湖，仇报完了，人也没了念想，把刀插在客栈门口转身下田种地。',
+  quip:'武侠界“提前退休第一人”，主打一个“江湖的风我吹够了，回去种两亩地”。',
+  kw:['随性自在','底线分明','不恋战'],fit:['价值取向','自我认知'],
+  survive:'你活得久是因为从不恋战：报完仇就走，不给任何门派留把柄。江湖里死得最快的都是想要更多的人，你什么都不要，所以能活到把刀插下。',
+  advice:'走之前，跟还在等你的人告个别。'}},
+
+ESTP:{theory:'越高压越兴奋，能忍、能装、也敢当场翻牌。',
+ f:{title:'钓系美人',drama:'豪门替身',tag:'清醒钓系美人',ep:[30,55],risk:false,
+  trope:'被当白月光替身娶进豪门，不争宠只搞钱和收集证据，时机成熟潇洒离开，反客为主。',
+  quip:'豪门“反工具人天花板”，你以为我在演深情，其实我在演商战，主打一个“你的剧本，我来改写”。',
+  kw:['高段位自保','目标明确','情绪抽离'],fit:['权力关系','自我定位'],
+  survive:'替身剧的死法只有一种：真的爱上了。你从头到尾都在演，所以从头到尾都没输。但你在虎口夺食，一旦被识破就没有第二次机会。',
+  advice:'演久了，记得问自己一句：哪一场才是真的你。'},
+ m:{title:'扮猪吃虎王',drama:'大男主逆袭',tag:'扮猪吃虎赘婿',ep:[45,70],risk:false,
+  trope:'表面窝囊赘婿实则隐藏大佬，前期被岳家欺辱，后期亮出战神/神医/首富身份，重拳出击打脸。',
+  quip:'男频“爽感制造机”，前期憋屈后期炸场，主打一个“你笑我穷酸，我笑你看不穿”。',
+  kw:['隐忍蓄力','实力碾压','情绪稳定'],fit:['压力应对','自我认同'],
+  survive:'你的集数分两段：前 30 集靠忍，忍到所有人都懒得防你；30 集之后靠炸，每揭一个马甲多撑十集。能忍多久，决定你能炸多久。',
+  advice:'别让“证明自己”变成唯一的目标。'}},
+
+ESFP:{theory:'擅长掌控当下的氛围，把局面握在自己手里。',
+ f:{title:'马甲揭晓王',drama:'马甲大佬',tag:'她才是那个大佬',ep:[35,60],risk:false,
+  trope:'被所有人当成花瓶，退婚那天她当众亮出七个身份，把现场办成了自己的封神现场。',
+  quip:'短剧“掉马天花板”，主打一个“你们争的那个名额，是我当年随手让出去的”。',
+  kw:['控场力','反差感','临场爆发'],fit:['自我定位','情绪管理'],
+  survive:'你的集数由“还有几个马甲没掉”决定：掉一个续十集。你活得长不是因为能打，而是所有人都低估你——低估是最便宜的护身符。',
+  advice:'被看见很好，但不用每次都靠掉马来证明。'},
+ m:{title:'契约婚姻赢家',drama:'都市言情',tag:'把假结婚过成真赢家',ep:[35,60],risk:false,
+  trope:'为了各自的目的签下契约婚姻，结果一个负责赚钱一个负责挡桃花，最后假戏真做。',
+  quip:'都市剧“合同制恋爱先驱”，主打一个“感情可以不谈，但分成得谈清楚”。',
+  kw:['控场力','临场感','人情练达'],fit:['亲密关系','自我定位'],
+  survive:'契约婚姻剧的死法是“动了真心还嘴硬”。你活到 60 集，因为既能把日子过得风生水起，也敢在最后几集认账——认账的人结局都不会太差。',
+  advice:'账算清了，也别忘了把心里那句说出来。'}}
+};
+const AXIS={EI:{E:'控场',I:'独狼'},SN:{S:'实干',N:'脑补'},TF:{T:'算账',F:'讲情'},JP:{J:'布局',P:'随机'}};
+const AXIS_NAME={EI:'气场轴',SN:'信息轴',TF:'判断轴',JP:'节奏轴'};
+const TYPE_ORDER=['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+
+/* =========================================================================
+   三、状态 / 交互
+   ========================================================================= */
+const KEY='pixel-drama-v2';
+const S={a:new Array(20).fill(-1),p:0,res:null,g:null};
+const $=s=>document.querySelector(s);
+const $$=s=>Array.prototype.slice.call(document.querySelectorAll(s));
+function store(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,p:S.p,g:S.g}))}catch(e){}}
+function restore(){try{const r=JSON.parse(localStorage.getItem(KEY)||'null');return r&&Array.isArray(r.a)?r:null}catch(e){return null}}
+function chan(){ return S.g==='m' ? '男生频道' : '女生频道'; }
+function show(id){$$('.stage').forEach(function(x){x.classList.remove('show')});$('#'+id).classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},1900)}
+
+document.addEventListener('pointerdown',function(e){
+  var b=e.target.closest?e.target.closest('.btn'):null; if(!b)return;
+  var r=document.createElement('span'); r.className='ripple';
+  var box=b.getBoundingClientRect();
+  r.style.left=(e.clientX-box.left)+'px'; r.style.top=(e.clientY-box.top)+'px';
+  b.appendChild(r); setTimeout(function(){r.remove()},420);
+});
+
+/* ---------- 进度条 ---------- */
+(function initProg(){
+  var html='';
+  for(var i=0;i<20;i++) html+='<i></i>';
+  $('#prog').innerHTML=html;
+})();
+function updProg(){
+  var cells=$$('#prog i'), answered=0;
+  S.a.forEach(function(v){if(v>=0)answered++});
+  cells.forEach(function(c,i){
+    c.className = S.a[i]>=0 ? 'on' : '';
+  });
+  var cur=S.p*5;
+  for(var k=cur;k<cur+5 && k<20;k++) if(S.a[k]<0 && cells[k]) cells[k].className='cur';
+  var pct=Math.round(answered/20*100);
+  $('#pgpct').textContent=pct+'%';
+  $('#pgnow').textContent=(S.p+1);
+  $('#btn-prev').disabled = S.p===0;
+  $('#btn-next').textContent = S.p===3 ? '查看结果 ▶' : '下一页 ▶';
+  $('#btn-next').disabled = S.a.slice(cur,cur+5).some(function(v){return v<0});
+  $('#pgtip').textContent = '已答 '+answered+' / 20 题'+(answered===20?'，可以出结果了':'');
+}
+
+/* ---------- 渲染题目 ---------- */
+function renderPage(){
+  var start=S.p*5, qs=QUESTIONS.slice(start,start+5), html='';
+  qs.forEach(function(q){
+    html+='<div class="card qcard a-'+q.ac+'">'
+      + '<div class="qhead"><span class="qidx">Q'+String(q.id).padStart(2,'0')+'</span>'
+      + '<span class="qfac">'+q.facet+'</span></div>'
+      + '<p class="qtext">'+q.q+'</p>';
+    q.o.forEach(function(o,oi){
+      var sel = S.a[q.id-1]===oi ? ' sel' : '';
+      html+='<button type="button" class="opt'+sel+'" data-q="'+q.id+'" data-o="'+oi+'">'
+        + '<span class="mk">'+'ABCD'[oi]+'</span><span>'+o.t+'</span></button>';
+    });
+    html+='</div>';
+  });
+  $('#qlist').innerHTML=html;
+  updProg();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+$('#qlist').addEventListener('click',function(e){
+  var b=e.target.closest('.opt'); if(!b)return;
+  var qi=+b.dataset.q-1, oi=+b.dataset.o;
+  var wasComplete=S.a.slice(S.p*5,S.p*5+5).every(function(v){return v>=0});
+  S.a[qi]=oi; store();
+  b.parentNode.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')});
+  b.classList.add('sel');
+  updProg();
+  var complete=S.a.slice(S.p*5,S.p*5+5).every(function(v){return v>=0});
+  if(complete && !wasComplete){
+    setTimeout(function(){
+      if(S.p<3){S.p++;store();renderPage();}
+      else {finish();}
+    },420);
+  }
+});
+
+function gotoPage(p){ S.p=p; store(); renderPage(); }
+$('#btn-prev').addEventListener('click',function(){ if(S.p>0) gotoPage(S.p-1) });
+$('#btn-next').addEventListener('click',function(){
+  if(S.a.slice(S.p*5,S.p*5+5).some(function(v){return v<0})) { toast('这页还有题没选哦'); return; }
+  if(S.p<3){ S.p++; store(); renderPage(); } else { finish(); }
+});
+
+/* =========================================================================
+   四、人格计分 + 剧本匹配 + 集数算法
+   ========================================================================= */
+function letterOf(dim,raw){
+  var L=DIM_LETTER[dim];
+  if(raw>0) return L[0];
+  if(raw<0) return L[1];
+  var pos=0,neg=0;
+  QUESTIONS.forEach(function(q,i){
+    if(q.dim!==dim) return;
+    var v=q.o[S.a[i]].v;
+    if(v>0&&v>pos) pos=v;
+    if(v<0&&-v>neg) neg=-v;
+  });
+  return pos>=neg?L[0]:L[1];
+}
+var FINISH_T=null;
+function finish(){
+  if(FINISH_T) return;               // 已有结算在进行，忽略重复触发
+  show('s-parse');
+  var steps=['读取作答数据…','推演你的行事底色…','匹配 16 类爽剧剧本…','结算存活集数…'];
+  var k=0; var timer=setInterval(function(){
+    k++; $('#parsetip').textContent=steps[Math.min(k,steps.length-1)];
+  },750);
+  FINISH_T=setTimeout(function(){
+    FINISH_T=null;
+    clearInterval(timer);
+    if(S.a.some(function(v){return v<0})) return;   // 中途重置过，放弃本次结算
+    S.res=compute();
+    renderResult();
+    show('s-result');
+  },3000);
+}
+function abortFinish(){ if(FINISH_T){ clearTimeout(FINISH_T); FINISH_T=null; } }
+function compute(){
+  var raw={EI:0,SN:0,TF:0,JP:0};
+  QUESTIONS.forEach(function(q,i){ raw[q.dim]+=q.o[S.a[i]].v; });
+  var l={
+    EI:letterOf('EI',raw.EI), SN:letterOf('SN',raw.SN),
+    TF:letterOf('TF',raw.TF), JP:letterOf('JP',raw.JP)
+  };
+  var type=l.EI+l.SN+l.TF+l.JP;
+  var PK=PERSONAS[type];
+  var P=PK[S.g||'f'];
+
+  // 人格一致性：每道题与该人格方向的契合度 0~40
+  var align=0;
+  QUESTIONS.forEach(function(q,i){
+    var v=q.o[S.a[i]].v;
+    var mine = (l[q.dim]===DIM_LETTER[q.dim][0]) ? 1 : -1;
+    align += v*mine;
+  });
+  if(align<0) align=0;
+
+  // 压力应对 / 人际信任 / 亲密关系 / 人际交往 → ±5 集微调（共 8 题）
+  var SUMF=['压力应对','人际信任','亲密关系','人际交往'];
+  var sum=0, n=0, fpick={};
+  QUESTIONS.forEach(function(q,i){
+    if(SUMF.indexOf(q.facet)<0) return;
+    var o=q.o[S.a[i]];
+    sum+=(o.s||0); n++;
+    if(!fpick[q.facet] || Math.abs(o.v)>Math.abs(fpick[q.facet].v)) fpick[q.facet]=o;
+  });
+  var adjust=Math.max(-5,Math.min(5,Math.round(sum*5/(n||8))));
+
+  // 集数：正常区间 / 无限流永生档 / 活不过三集档
+  var base, ep;
+  if(P.ep==='inf'){
+    base=null; ep='∞';
+  }else if(P.ep==='short'){
+    base=2+(align>=30?1:(align<=14?-1:0));
+    ep=Math.max(1,Math.min(3, base+(adjust>0?1:(adjust<0?-1:0))));
+  }else{
+    var lo=P.ep[0], hi=P.ep[1];
+    base=Math.round(lo + (align/40)*(hi-lo));
+    ep=Math.max(1, Math.min(100, base+adjust));
+  }
+
+  // 代表选项：与人格方向最契合的三题
+  var picks=QUESTIONS.map(function(q,i){
+    var o=q.o[S.a[i]];
+    var mine=(l[q.dim]===DIM_LETTER[q.dim][0])?1:-1;
+    return {id:q.id,k:o.k,score:o.v*mine};
+  }).sort(function(a,b){ return b.score-a.score || a.id-b.id }).slice(0,3);
+
+  var axis=[AXIS.EI[l.EI],AXIS.SN[l.SN],AXIS.TF[l.TF],AXIS.JP[l.JP]];
+  return {type:type,P:P,ep:ep,base:base,adjust:adjust,axis:axis,code:'SD-'+String(TYPE_ORDER.indexOf(type)+1).padStart(2,'0'),
+    theory:PK.theory,chan:chan(),
+    stress:fpick['压力应对']?fpick['压力应对'].k:'保持平稳',
+    trust:fpick['人际信任']?fpick['人际信任'].k:'谨慎观察',
+    close:fpick['亲密关系']?fpick['亲密关系'].k:'把人放在心上',
+    social:fpick['人际交往']?fpick['人际交往'].k:'看情况再接话',
+    picks:picks};
+}
+
+/* 集数推导说明：把四个关系与压力维度的取舍讲清楚 */
+function epWhyLine(r){
+  var P=r.P, sign=r.adjust>=0?'+':'−';
+  var four='抗压“'+r.stress+'”、亲近“'+r.close+'”，再加信人与社交两处取舍';
+  if(P.ep==='inf')
+    return four+'，四处取舍浮动 '+sign+' '+Math.abs(r.adjust)+'，而你的集数本就没有上限：<span class="hl">∞</span>。';
+  if(P.ep==='short')
+    return four+'，你几乎每次都挑了不回头那一项，于是被钉在第 <span class="hl">'+r.ep+' 集</span>。';
+  return four+'，基准 '+r.base+' 集浮动 '+sign+' '+Math.abs(r.adjust)+'，落在第 <span class="hl">'+r.ep+' 集</span>。';
+}
+
+/* 集数文案：∞ 与 ≤3 集两档特例 */
+function epText(P){
+  if(P.ep==='inf') return '∞ 集（无限）';
+  if(P.ep==='short') return '1-3 集';
+  return P.ep[0]+'-'+P.ep[1]+' 集';
+}
+
+/* =========================================================================
+   五、结果渲染（4 个模块）
+   ========================================================================= */
+function renderResult(){
+  var r=S.res, P=r.P;
+  var isInf=(P.ep==='inf'), isShort=(P.ep==='short');
+  $('#r-ep').textContent=r.ep;
+  $('#r-epunit').textContent = isInf ? '' : ' 集';
+  $('#r-eplbl').textContent = isInf ? '你的短剧存活集数 · 无限流永生档'
+    : (isShort ? '你的短剧存活集数 · 意难平档' : '你的短剧存活集数');
+  // 常规档的说明要能解释"为什么比同型多活/少活"，避免出现"区间 30-55，却落在 56"的矛盾
+  var epwhy;
+  if(isInf) epwhy='副本刷新一次你通一次关，集数写不出尽头';
+  else if(isShort) epwhy='不是不够强，是太赤诚——这条路你选了就走到黑';
+  else if(r.ep>P.ep[1]) epwhy='同型基准 '+P.ep[0]+'-'+P.ep[1]+' 集，你的取舍让这部剧多留了你 '+(r.ep-P.ep[1])+' 集';
+  else if(r.ep<P.ep[0]) epwhy='同型基准 '+P.ep[0]+'-'+P.ep[1]+' 集，你的取舍让你早退了 '+(P.ep[0]-r.ep)+' 集';
+  else epwhy='同型基准 '+P.ep[0]+'-'+P.ep[1]+' 集，你的取舍让你停在第 '+r.ep+' 集';
+  $('#r-epwhy').textContent = epwhy;
+  var cb=$('#r-chan'); cb.textContent=chan(); cb.classList.toggle('m',S.g==='m');
+  $('#r-axis').innerHTML=r.axis.map(function(c){return '<span>'+c+'</span>'}).join('');
+  $('#r-pname').textContent='人格代号 · '+P.title;
+  $('#r-drama').textContent=P.drama;
+  $('#r-tag').textContent=P.tag;
+  $('#r-mtype').textContent='档案号 '+r.code+'｜'+r.axis.join(' · ')+'｜剧情娱乐向人格标签';
+  $('#r-warn').style.display = P.risk ? 'block' : 'none';
+
+  var ids=r.picks.map(function(x){return 'Q'+String(x.id).padStart(2,'0')}).join('、');
+  var kws=r.picks.map(function(x){return '“'+x.k+'”'}).join('、');
+  var sign=r.adjust>=0?'+':'−';
+
+  var html=''
+  // 模块 2：核心套路白话版（严格取自素材库“核心剧情套路”列，≤80 字）
+  + '<div class="card mod a-orange">'
+  +   '<div class="modhead"><span class="modno n2">02</span><span class="modtitle">核心套路白话版</span></div>'
+  +   '<div class="modbody"><p>'+P.trope+'</p></div>'
+  + '</div>'
+  // 模块 3：性格依据 × 用户具体答题行为
+  + '<div class="card mod a-sky">'
+  +   '<div class="modhead"><span class="modno n3">03</span><span class="modtitle">为什么偏偏是这部剧</span></div>'
+  +   '<div class="modbody">'
+  +     '<p><span class="hl">'+P.title+'：</span>'+r.theory+'</p>'
+  +     '<p>在'+ids+'你选了'+kws+'——这就是 <span class="kw">'+P.tag+'</span> 的打法。</p>'
+  +     '<p>'+P.survive+'</p>'
+  +     '<p>'+epWhyLine(r)+'</p>'
+  +   '</div>'
+  + '</div>'
+  // 模块 4：网感调侃 + 现实寄语
+  + '<div class="card mod a-mint">'
+  +   '<div class="modhead"><span class="modno n4">04</span><span class="modtitle">幽默点评 + 现实寄语</span></div>'
+  +   '<div class="quip">'+P.quip+'</div>'
+  +   '<div class="advice">'+P.advice+'</div>'
+  + '</div>';
+  $('#r-mods').innerHTML=html;
+
+  // 模块 1（人物档案）的关键词与命门：放在顶部人物档案区，不计入解读正文
+  $('#r-kw').innerHTML = P.kw.map(function(k){return '<span>'+k+'</span>'}).join('')
+    + '<span class="fit">命门 · '+P.fit.join('、')+'</span>';
+
+  $('#grid16').innerHTML=TYPE_ORDER.map(function(m){
+    var x=PERSONAS[m][S.g||'f'];
+    return '<div class="g16"><div class="m">'+x.title+'</div><div class="t">'+x.drama+'</div><div class="d">'+x.tag+'｜'+epText(x)+'</div></div>';
+  }).join('');
+  $('#g16title').textContent='同一套作答 · '+chan()+'的 16 套人设';
+  $('#btn-switch').textContent='⇄ 换到'+(S.g==='m'?'女生':'男生')+'频道看';
+}
+
+/* ---------- 频道选择 ---------- */
+function pickGender(g){
+  S.g=g; store();
+  QUESTIONS = (g==='m'?QM:QF);   // 女频 / 男频各一套题
+  $$('.gbtn').forEach(function(b){ b.classList.toggle('on', b.dataset.g===g) });
+}
+$$('.gbtn').forEach(function(b){
+  b.addEventListener('click',function(){ pickGender(b.dataset.g) });
+  b.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pickGender(b.dataset.g); }
+  });
+});
+function needGender(){
+  if(S.g) return false;
+  toast('先选一个频道：♀ 女生 / ♂ 男生');
+  var box=document.querySelector('.gsel');
+  try{ if(box&&box.scrollIntoView) box.scrollIntoView({behavior:'smooth',block:'center'}) }catch(e){}
+  return true;
+}
+
+$('#btn-again').addEventListener('click',function(){
+  abortFinish();
+  S.a=new Array(20).fill(-1); S.p=0; S.res=null; store(); show('s-home');
+});
+$('#btn-start').addEventListener('click',function(){
+  if(needGender()) return;
+  abortFinish();
+  S.a=new Array(20).fill(-1); S.p=0; S.res=null; store();
+  $('#s-home').classList.remove('show'); $('#s-quiz').classList.add('show');
+  renderPage();
+});
+$('#btn-resume').addEventListener('click',function(){
+  var sv=restore(); if(sv){ S.a=sv.a; S.p=sv.p||0; if(sv.g) S.g=sv.g; }
+  if(!S.g) S.g='f'; pickGender(S.g);
+  $('#s-home').classList.remove('show'); $('#s-quiz').classList.add('show');
+  renderPage();
+});
+$('#btn-switch').addEventListener('click',function(){
+  if(!S.res) return;
+  S.g = S.g==='m' ? 'f' : 'm';
+  store(); pickGender(S.g);
+  S.res=compute(); renderResult();
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast('已切到'+chan()+'：'+S.res.P.drama+'·'+S.res.P.tag);
+});
+$('#btn-copy').addEventListener('click',function(){
+  var r=S.res;
+  var txt='短剧人格鉴定：你的性格能在短剧里活几集？\n'
+    +'【'+chan()+'】我的结果：'+r.ep+(r.ep==='∞'?'（无限）':' 集')+'｜'+r.P.title+'（'+r.axis.join('·')+'）｜'+r.P.drama+'·'+r.P.tag+'\n'
+    +'套路：'+r.P.trope+'\n'+r.P.quip+'\n'
+    +'（本测试仅为短剧文化趣味互动，结果仅供娱乐参考。）';
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){toast('已复制结果文字')},function(){fallbackCopy(txt)});
+  } else fallbackCopy(txt);
+});
+function fallbackCopy(t){
+  var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity=0;
+  document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy'); toast('已复制结果文字')}catch(e){toast('复制失败，请手动选择')}
+  ta.remove();
+}
+
+/* =========================================================================
+   六、内置二维码生成器（纯 JS，无外部依赖）
+   ========================================================================= */
+var QR=(function(){
+  var EXP=new Uint8Array(512),LOG=new Uint8Array(256);
+  (function(){
+    var x=1;
+    for(var i=0;i<255;i++){EXP[i]=x;LOG[x]=i;x<<=1;if(x&0x100)x^=0x11d;}
+    for(var j=255;j<512;j++)EXP[j]=EXP[j-255];
+  })();
+  function mul(a,b){ if(a===0||b===0)return 0; return EXP[LOG[a]+LOG[b]]; }
+  function genPoly(d){
+    var p=[1];
+    for(var i=0;i<d;i++){
+      var n=p.length,r=new Array(n+1).fill(0);
+      for(var k=0;k<n;k++){ r[k]^=p[k]; r[k+1]^=mul(p[k],EXP[i]); }
+      p=r;
+    }
+    return p;
+  }
+  function ecc(data,d){
+    var g=genPoly(d), b=data.concat(new Array(d).fill(0));
+    for(var i=0;i<data.length;i++){
+      var c=b[i];
+      if(c){ for(var k=1;k<g.length;k++) b[i+k]^=mul(g[k],c); }
+    }
+    return b.slice(data.length);
+  }
+  // [块数, 每块总码字, 每块数据码字]，每版本 4 组：L M Q H
+  var T=[
+    [[1,26,19]],[[1,26,16]],[[1,26,13]],[[1,26,9]],
+    [[1,44,34]],[[1,44,28]],[[1,44,22]],[[1,44,16]],
+    [[1,70,55]],[[1,70,44]],[[2,35,17]],[[2,35,13]],
+    [[1,100,80]],[[2,50,32]],[[2,50,24]],[[4,25,9]],
+    [[1,134,108]],[[2,67,43]],[[2,33,15],[2,34,16]],[[2,33,11],[2,34,12]],
+    [[2,86,68]],[[4,43,27]],[[4,43,19]],[[4,43,15]],
+    [[2,98,78]],[[4,49,31]],[[2,32,14],[4,33,15]],[[4,39,13],[1,40,14]],
+    [[2,121,97]],[[2,60,38],[2,61,39]],[[4,40,18],[2,41,19]],[[4,40,14],[2,41,15]],
+    [[2,146,116]],[[3,58,36],[2,59,37]],[[4,36,16],[4,37,17]],[[4,36,12],[4,37,13]],
+    [[2,86,68],[2,87,69]],[[4,69,43],[1,70,44]],[[6,43,19],[2,44,20]],[[6,43,15],[2,44,16]]
+  ];
+  var FMT=[1,0,3,2];                 // L=01 M=00 Q=11 H=10
+  var ALIGN=[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50]];
+
+  function make(text){
+    var bytes=new TextEncoder().encode(text);
+    for(var attempt=0;attempt<2;attempt++){
+      var li=attempt===0?1:0;                       // 先用 M，装不下再用 L
+      for(var v=1;v<=10;v++){
+        var blocks=T[(v-1)*4+li], total=0;
+        blocks.forEach(function(b){ total+=b[1]*b[0] });
+        var dataCW=0; blocks.forEach(function(b){ dataCW+=b[2]*b[0] });
+        var need=4+(v<10?8:16)+bytes.length*8;
+        if(need>dataCW*8) continue;
+        return build(v,li,bytes,blocks,dataCW);
+      }
+    }
+    return null;
+  }
+
+  function build(v,li,bytes,blocks,dataCW){
+    var bits=[];
+    function put(val,len){ for(var i=len-1;i>=0;i--) bits.push((val>>i)&1); }
+    put(4,4);
+    put(bytes.length, v<10?8:16);
+    for(var i=0;i<bytes.length;i++) put(bytes[i],8);
+    var cap=dataCW*8;
+    var term=Math.min(4,cap-bits.length);
+    for(var t=0;t<term;t++) bits.push(0);
+    while(bits.length%8) bits.push(0);
+    var cw=[],pad=0;
+    for(var b=0;b<bits.length;b+=8){ var val=0; for(var k=0;k<8;k++) val=(val<<1)|bits[b+k]; cw.push(val); }
+    while(cw.length<dataCW){ cw.push(pad?0x11:0xEC); pad^=1; }
+
+    // 分块 + 纠错
+    var blks=[],off=0;
+    blocks.forEach(function(sp){
+      for(var i=0;i<sp[0];i++){
+        var d=cw.slice(off,off+sp[2]); off+=sp[2];
+        blks.push({d:d,e:ecc(d,sp[1]-sp[2])});
+      }
+    });
+    var out=[],maxD=0;
+    blks.forEach(function(x){ if(x.d.length>maxD) maxD=x.d.length });
+    for(var c=0;c<maxD;c++) blks.forEach(function(x){ if(c<x.d.length) out.push(x.d[c]) });
+    for(var c2=0;c2<blks[0].e.length;c2++) blks.forEach(function(x){ out.push(x.e[c2]) });
+
+    // 矩阵
+    var n=v*4+17, m=[], f=[];
+    for(var y=0;y<n;y++){ m.push(new Array(n).fill(false)); f.push(new Array(n).fill(false)); }
+    function set(x,y,v2){ m[y][x]=v2; f[y][x]=true; }
+
+    [[3,3],[n-4,3],[3,n-4]].forEach(function(cy){
+      for(var dy=-4;dy<=4;dy++) for(var dx=-4;dx<=4;dx++){
+        var x=cy[0]+dx, y2=cy[1]+dy;
+        if(x<0||x>=n||y2<0||y2>=n) continue;
+        var dist=Math.max(Math.abs(dx),Math.abs(dy));
+        set(x,y2, dist===4?false:(dist!==2));
+      }
+    });
+    for(var i2=8;i2<n-8;i2++){ set(6,i2,i2%2===0); set(i2,6,i2%2===0); }
+    var ac=ALIGN[v-1];
+    for(var a1=0;a1<ac.length;a1++) for(var a2=0;a2<ac.length;a2++){
+      var cx=ac[a2], cy2=ac[a1];
+      if((cx===6&&cy2===6)||(cx===6&&cy2===n-7)||(cx===n-7&&cy2===6)) continue;
+      for(var dy2=-2;dy2<=2;dy2++) for(var dx2=-2;dx2<=2;dx2++){
+        set(cx+dx2,cy2+dy2, Math.max(Math.abs(dx2),Math.abs(dy2))!==1);
+      }
+    }
+    set(8,n-8,true);                                   // dark module
+    function drawFormat(mask){
+      var data=(FMT[li]<<3)|mask;
+      var rem=data<<10;
+      for(var i=14;i>=10;i--) if((rem>>>i)&1) rem^=(0x537<<(i-10));
+      var bitsF=((data<<10)|rem)^0x5412;
+      function gb(i){ return ((bitsF>>>i)&1)===1 }
+      for(var i1=0;i1<=5;i1++) set(8,i1,gb(i1));
+      set(8,7,gb(6)); set(8,8,gb(7)); set(7,8,gb(8));
+      for(var i2b=9;i2b<15;i2b++) set(14-i2b,8,gb(i2b));
+      for(var i3=0;i3<8;i3++) set(n-1-i3,8,gb(i3));
+      for(var i4=8;i4<15;i4++) set(8,n-15+i4,gb(i4));
+      set(8,n-8,true);
+    }
+    drawFormat(0);                                     // 占位，保留格式区
+    if(v>=7){
+      var vrem=v<<12;
+      for(var vi=17;vi>=12;vi--) if((vrem>>>vi)&1) vrem^=(0x1F25<<(vi-12));
+      var vbits=(v<<12)|vrem;
+      for(var qi=0;qi<18;qi++){
+        var bt=((vbits>>>qi)&1)===1;
+        var aa=n-11+qi%3, bb=Math.floor(qi/3);
+        set(aa,bb,bt); set(bb,aa,bt);
+      }
+    }
+
+    var bi=0;
+    function next(){
+      if(bi>=out.length*8) return false;
+      var bit=(out[bi>>3]>>>(7-(bi&7)))&1; bi++; return bit===1;
+    }
+    for(var right=n-1;right>=1;right-=2){
+      if(right===6) right=5;
+      var upward=((right+1)&2)===0;
+      for(var vt=0;vt<n;vt++){
+        var y3=upward?n-1-vt:vt;
+        for(var jj=0;jj<2;jj++){
+          var xx=right-jj;
+          if(!f[y3][xx]) m[y3][xx]=next();
+        }
+      }
+    }
+
+    function mfn(mask,x,y){
+      switch(mask){
+        case 0: return (x+y)%2===0;
+        case 1: return y%2===0;
+        case 2: return x%3===0;
+        case 3: return (x+y)%3===0;
+        case 4: return (Math.floor(y/2)+Math.floor(x/3))%2===0;
+        case 5: return ((x*y)%2+(x*y)%3)===0;
+        case 6: return (((x*y)%2+(x*y)%3)%2)===0;
+        default: return (((x+y)%2+(x*y)%3)%2)===0;
+      }
+    }
+    function apply(mask){
+      for(var y4=0;y4<n;y4++) for(var x4=0;x4<n;x4++)
+        if(!f[y4][x4] && mfn(mask,x4,y4)) m[y4][x4]=!m[y4][x4];
+    }
+    function penalty(){
+      var p=0;
+      for(var i5=0;i5<n;i5++){
+        var run=1,j5;
+        for(j5=1;j5<n;j5++){ if(m[i5][j5]===m[i5][j5-1]) run++; else { if(run>=5)p+=3+(run-5); run=1; } }
+        if(run>=5)p+=3+(run-5);
+        run=1;
+        for(j5=1;j5<n;j5++){ if(m[j5][i5]===m[j5-1][i5]) run++; else { if(run>=5)p+=3+(run-5); run=1; } }
+        if(run>=5)p+=3+(run-5);
+      }
+      for(var y5=0;y5<n-1;y5++) for(var x5=0;x5<n-1;x5++){
+        var cc=m[y5][x5];
+        if(cc===m[y5][x5+1]&&cc===m[y5+1][x5]&&cc===m[y5+1][x5+1]) p+=3;
+      }
+      var pat=[true,false,true,true,true,false,true];
+      function chk(arr){
+        for(var i6=0;i6+11<=arr.length;i6++){
+          var ok=true,k6;
+          for(k6=0;k6<7;k6++) if(arr[i6+k6]!==pat[k6]){ok=false;break}
+          if(ok){ var side=true; for(k6=7;k6<11;k6++) if(arr[i6+k6]!==false){side=false;break} if(side)p+=40; }
+          ok=true;
+          for(k6=0;k6<7;k6++) if(arr[i6+4+k6]!==pat[k6]){ok=false;break}
+          if(ok){ var lead=true; for(k6=0;k6<4;k6++) if(arr[i6+k6]!==false){lead=false;break} if(lead)p+=40; }
+        }
+      }
+      for(var y6=0;y6<n;y6++) chk(m[y6]);
+      for(var x6=0;x6<n;x6++){ var col=[]; for(var y7=0;y7<n;y7++) col.push(m[y7][x6]); chk(col); }
+      var dark=0;
+      for(var y8=0;y8<n;y8++) for(var x8=0;x8<n;x8++) if(m[y8][x8]) dark++;
+      p+=Math.floor(Math.abs(dark*100/(n*n)-50)/5)*10;
+      return p;
+    }
+    var bestMask=0,bestPen=Infinity;
+    for(var mm=0;mm<8;mm++){
+      apply(mm); drawFormat(mm);
+      var pen=penalty();
+      if(pen<bestPen){bestPen=pen;bestMask=mm}
+      apply(mm);
+    }
+    apply(bestMask); drawFormat(bestMask);
+    return {size:n,modules:m};
+  }
+  return {make:make};
+})();
+
+/* =========================================================================
+   七、分享图（canvas 绘制 + 二维码）
+   ========================================================================= */
+function wrapText(ctx,text,maxW){
+  var lines=[],cur='';
+  for(var i=0;i<text.length;i++){
+    var ch=text[i];
+    if(ch==='\n'){ lines.push(cur); cur=''; continue; }
+    if(ctx.measureText(cur+ch).width>maxW && cur){ lines.push(cur); cur=ch; }
+    else cur+=ch;
+  }
+  if(cur) lines.push(cur);
+  return lines;
+}
+function drawShare(){
+  if(!S.res||!S.res.P){ toast('先完成 20 道题，再生成分享图'); return; }
+  var r=S.res,P=r.P;
+  var W=560,H=920,cv=$('#sharecv'),ctx=cv.getContext('2d');
+  if(!ctx){ toast('当前浏览器不支持生成图片，可改用「复制结果文字」'); return; }
+  cv.width=W; cv.height=H;
+  var CN='"PingFang SC","Microsoft YaHei",sans-serif';
+
+  var g=ctx.createLinearGradient(0,0,W,H);
+  g.addColorStop(0,'#241a5c'); g.addColorStop(1,'#150f31');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(255,255,255,.05)';
+  for(var y=0;y<H;y+=8) ctx.fillRect(0,y,W,1);
+
+  ctx.fillStyle='#ffd23f'; ctx.fillRect(16,16,W-32,6);
+  ctx.fillStyle='#ff5d8f'; ctx.fillRect(16,22,W-32,6);
+
+  ctx.textAlign='center';
+  ctx.fillStyle='#fff4e0';
+  ctx.font='bold 30px '+CN;
+  ctx.fillText('短剧人格鉴定',W/2,86);
+  ctx.font='bold 19px '+CN;
+  ctx.fillStyle='#ffffff';
+  ctx.fillText('你的性格能在短剧里活几集？',W/2,118);
+
+  // 集数
+  ctx.fillStyle='rgba(255,210,63,.14)';
+  ctx.fillRect(56,146,W-112,116);
+  ctx.strokeStyle='#ffd23f'; ctx.lineWidth=3;
+  ctx.strokeRect(56,146,W-112,116);
+  ctx.fillStyle='#ffd23f';
+  ctx.font='bold 78px '+CN;
+  ctx.fillText(String(r.ep),W/2,222);
+  ctx.font='bold 20px '+CN;
+  ctx.fillStyle='#fff4e0';
+  if(r.ep!=='∞') ctx.fillText('集',W/2+ctx.measureText(String(r.ep)).width/2+22,222);
+  ctx.font='14px '+CN;
+  ctx.fillStyle='#b8afdd';
+  ctx.fillText('SHORT DRAMA SURVIVAL · '+chan()+(r.ep==='∞'?' · 无限流永生档':'')+' · 娱乐向人格标签',W/2,250);
+
+  // 四维行事轴
+  var cols=['#ff5d8f','#ffd23f','#4fe3a5','#5cc8ff'];
+  var bw=64,gap=16,tot=4*bw+3*gap,sx=(W-tot)/2;
+  for(var i=0;i<4;i++){
+    ctx.fillStyle=cols[i];
+    ctx.fillRect(sx+i*(bw+gap),282,bw,64);
+    ctx.fillStyle='#0a0620';
+    ctx.font='bold 27px '+CN;
+    ctx.fillText(r.axis[i],sx+i*(bw+gap)+bw/2,326);
+  }
+
+  // 人格代号
+  ctx.fillStyle='#ffd23f';
+  ctx.font='bold 22px '+CN;
+  ctx.fillText('人格代号 · '+P.title,W/2,372);
+  // 剧本标签
+  ctx.fillStyle='#fff4e0';
+  ctx.font='bold 26px '+CN;
+  ctx.fillText(P.drama+' ｜ '+P.tag,W/2,404);
+  ctx.fillStyle='#4fe3a5';
+  ctx.font='15px '+CN;
+  ctx.fillText(P.kw.join(' · '),W/2,432);
+
+  // 摘要
+  ctx.textAlign='left';
+  ctx.fillStyle='rgba(255,255,255,.05)';
+  ctx.fillRect(46,442,W-92,208);
+  ctx.strokeStyle='rgba(255,255,255,.14)'; ctx.lineWidth=2;
+  ctx.strokeRect(46,442,W-92,208);
+  ctx.fillStyle='#e8e3ff';
+  ctx.font='17px '+CN;
+  var lines=wrapText(ctx,'你是「'+P.title+'」：'+P.trope+'你的选择让它'+P.survive,W-120);
+  lines=lines.slice(0,7);
+  lines.forEach(function(ln,k){ ctx.fillText(ln,64,478+k*28) });
+  ctx.fillStyle='#ff5d8f';
+  ctx.font='bold 15px '+CN;
+  var q=wrapText(ctx,P.quip,W-120)[0]||'';
+  ctx.fillText(q.slice(0,26),64,478+lines.length*28+8);
+
+  // 二维码
+  var qrText=(location.protocol.indexOf('http')===0)?location.href:('短剧人格鉴定｜'+r.ep+'集｜'+P.title+'｜'+P.drama+'·'+P.tag);
+  var qy=690;
+  try{
+    var qr=QR.make(qrText.slice(0,180));
+    if(qr){
+      var qsize=150, px=Math.floor(qsize/qr.size)||1, qx=(W-qsize)/2;
+      ctx.fillStyle='#fff4e0';
+      ctx.fillRect(qx-12,qy-12,qsize+24,qsize+24);
+      ctx.fillStyle='#0a0620';
+      for(var yy=0;yy<qr.size;yy++) for(var xx=0;xx<qr.size;xx++){
+        if(qr.modules[yy][xx]) ctx.fillRect(qx+xx*px,qy+yy*px,px,px);
+      }
+    }
+  }catch(e){}
+  ctx.textAlign='center';
+  ctx.fillStyle='#b8afdd';
+  ctx.font='14px '+CN;
+  ctx.fillText('扫码回到测试 · 看你能活几集',W/2,qy+180);
+  ctx.fillStyle='#6f66a0';
+  ctx.font='12px '+CN;
+  ctx.fillText('趣味互动 · 结果仅供娱乐参考',W/2,H-30);
+}
+$('#btn-share').addEventListener('click',function(){
+  drawShare(); $('#mask').classList.add('show');
+});
+$('#btn-close').addEventListener('click',function(){ $('#mask').classList.remove('show') });
+$('#mask').addEventListener('click',function(e){ if(e.target===$('#mask')) $('#mask').classList.remove('show') });
+$('#btn-dl').addEventListener('click',function(){
+  try{
+    var url=$('#sharecv').toDataURL('image/png');
+    var a=document.createElement('a');
+    a.href=url; a.download='短剧人格鉴定_'+S.res.P.title+'_'+S.res.ep+'集.png';
+    document.body.appendChild(a); a.click(); a.remove();
+    toast('图片已保存到下载目录');
+  }catch(e){ toast('保存失败，请长按图片保存') }
+});
+
+/* =========================================================================
+   八、启动
+   ========================================================================= */
+(function boot(){
+  var sv=restore();
+  if(sv && sv.g) pickGender(sv.g);
+  if(sv && sv.a.some(function(v){return v>=0})) $('#btn-resume').style.display='inline-flex';
+  setTimeout(function(){ if($('#s-load').classList.contains('show')) show('s-home') },900);
+})();
+</script>
+</body>
+</html>
